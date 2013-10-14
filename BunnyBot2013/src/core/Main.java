@@ -22,8 +22,14 @@ public class Main extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
+    
+    Vector a = new Vector (1,0);
+        Vector b = new Vector (1,Math.PI/2);
+        Vector c = new Vector (0,0);
+        vectorControler vect = new vectorControler();
+        double[] array = new double[2];
     public void robotInit() {
-
+       
     }
 
     /**
@@ -37,7 +43,11 @@ public class Main extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        
+       vect.add(a,b,c);
+       c.toArray(array);
+       System.out.print(array[0]);
+       System.out.print(array[1]);
+
     }
     
     /**
