@@ -9,13 +9,13 @@ import edu.wpi.first.wpilibj.Solenoid;
  * @author Troy-Jameson(Trevor)
  */
 public class Piston extends Solenoid {
-    //Creates solenoids
+    //Declares solenoids
     Solenoid solenoidOne;
     Solenoid solenoidTwo;
     
     public Piston(int portOne, int portTwo, int portThree, int portFour) {
         super(portOne, portTwo);
-        //Declares solenoids
+        //Creates solenoids
         solenoidOne = new Solenoid(portOne, portTwo);
         solenoidTwo = new Solenoid(portThree, portFour);
     }
