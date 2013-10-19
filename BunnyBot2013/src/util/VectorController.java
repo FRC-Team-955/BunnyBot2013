@@ -4,13 +4,14 @@
  * and open the template in the editor.
  */
 
-package core;
+package util;
+
 /**
  *
  * @author Ryan
  */
-public class vectorControler {
-   public vectorControler(){
+public class VectorController {
+   public VectorController(){
         
     }
            public void add(Vector a, Vector b, Vector c){

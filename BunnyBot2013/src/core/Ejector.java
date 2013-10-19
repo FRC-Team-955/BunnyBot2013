@@ -4,6 +4,8 @@
  */
 package core;
 
+import util.Piston;
+import util.MyJoystick;
 import edu.wpi.first.wpilibj.Solenoid;
 
 /**
@@ -12,7 +14,7 @@ import edu.wpi.first.wpilibj.Solenoid;
  */
 public class Ejector 
 {
-    public Ejector(myJoystick joy, int port1, int port2, int port3, int port4)// Joy will come later
+    public Ejector(MyJoystick joy, int port1, int port2, int port3, int port4)// Joy will come later
     {
         Piston sol = new Piston(int port1,int port2, int port3, int port4);  
     }
