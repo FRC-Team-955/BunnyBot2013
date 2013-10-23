@@ -7,6 +7,7 @@ import edu.wpi.first.wpilibj.Solenoid;
 /**
  *
  * @author Troy-Jameson(Trevor)
+ * The base line code for solenoids. Used by the Ejector class.
  */
 public class Piston extends Solenoid {
     //Declares solenoids
