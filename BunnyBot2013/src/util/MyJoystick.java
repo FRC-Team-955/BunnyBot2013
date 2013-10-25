@@ -19,7 +19,13 @@ public class MyJoystick extends Joystick {
     public boolean getDebounce(int button){
            boolean lastState = getRawButton(button);
             
-           if (lastState === getRawButton)  
+           if (lastState == false && lastState == !getRawButton(button)){
+               return true;  
+           }  
+           else{
+               return false;
+               
+           }
                        
         
     }
