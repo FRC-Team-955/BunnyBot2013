@@ -18,20 +18,19 @@ public class MyJoystick extends Joystick {
     
     public boolean getDebounce(int button){
            boolean lastState = getRawButton(button);
-            
+           //make sure the button is set to false? 
            if(lastState == false && lastState ==! getRawButton(button)){
                return true;  
            }  
            // If the the button was unpressed and now is pressed it is pressed
            else{
                return false;
-               
+           //If not the button is not pressed    
            }
                        
         
     }
-    
-    //False,False,False,True,True,True,True,False,False
+        
    
     
 }
