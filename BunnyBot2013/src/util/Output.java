@@ -43,20 +43,7 @@ public class Output {
             
         }
     }
-    public void Print(int id, String name, double value, int roundPoint){/*Print statement for Double, optional round point*/
-        if(checkToPrint(id)){
-            if(roundPoint!=0&&roundPoint!=null){
-                double valueRounded = ;
-                if(name!=""&&name!=null){
-                    System.out.print(name+": "+valueRounded);
-                }
-                else {
-                    System.out.print(valueRounded);
-                }
-            }
-        }
-    }
-    public void Print(int id, String name, double value){/*Print statement for Double sans roundpoint*/
+    public void Print(int id, String name, double value){/*Print statement for Double*/
         if(checkToPrint(id)){
             if(name!=""&&name!=null){
                 System.out.print(name+": "+value);
@@ -66,20 +53,5 @@ public class Output {
             }
             
         }
-    }/*Ythak rage comment:
-             HELLO SILLY HUMANS
-             I HAVE COME TO EAT EVERYTHING YOU LOVE
-             INCLUDING YOU
-             AND YOUR MOM'
-             AND YOUR DAD
-             AND YOUR MOM'S MOM
-             AND YOUR DAD'S DAD
-             WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
-             OKEY
-             hello
-             i am a destroyer
-             named may
-             hehehehehehhehehehehehhehehehehehehehe
-             weeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
-             okay bye :)*/
+    }
 }
