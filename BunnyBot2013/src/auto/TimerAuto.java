@@ -4,6 +4,8 @@
  */
 package auto;
 
+import util.Vars;
+
 /**
  *
  * @author aditya.sriram
@@ -13,7 +15,7 @@ public class TimerAuto {
     Driver driver;
     
     public TimerAuto(Driver driver){
-        this.driver = driver
+        this.driver = driver;
     }
     
     public void run(){
@@ -31,7 +33,7 @@ public class TimerAuto {
     
      public int getTime(int distance, double speed){
     
-      int time = (distance * (speed * Vars.MAX_SPEED))/1000; // TODO find units
+      int time = (int)Math.ceil((distance * (speed * Vars.MAX_SPEED))/1000); // TODO find units
     
      return time;
    }

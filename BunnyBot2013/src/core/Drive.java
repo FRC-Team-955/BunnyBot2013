@@ -9,15 +9,15 @@ package core;
  * @author trevor.jones
  */
 public class Drive {
-    myTalon leftTalonOne = new myTalon();
-    myTalon leftTalonTwo = new myTalon();
-    myTalon leftTalonThree = new myTalon();
+    MyTalon leftTalonOne = new MyTalon();
+    MyTalon leftTalonTwo = new MyTalon();
+    MyTalon leftTalonThree = new MyTalon();
     
-    myTalon rightTalonOne = new myTalon();
-    myTalon rightTalonTwo = new myTalon();
-    myTalon rightTalonThree = new myTalon();
+    MyTalon rightTalonOne = new MyTalon();
+    MyTalon rightTalonTwo = new MyTalon();
+    MyTalon rightTalonThree = new MyTalon();
      
-    public static void set(double x, double y) {
+    public void set(double x, double y) {
         double left = y+x;
         double right = y-x;
         
@@ -25,13 +25,13 @@ public class Drive {
         setRight(right);
     }
     
-    private static void setLeft(double left) {
+    private void setLeft(double left) {
         leftTalonOne.set(left);
         leftTalonTwo.set(left);
         leftTalonThree.set(left);
     }
     
-    private static void setRight(double right) {
+    private void setRight(double right) {
         rightTalonOne.set(right);
         rightTalonTwo.set(right);
         rightTalonThree.set(right);
