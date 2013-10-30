@@ -12,7 +12,7 @@ package util;
  */
 public class Vars {
     
-    final int MAX_SPEED = 10;//feet per second
+    public static final int MAX_SPEED = 10;//feet per second
     
     
     

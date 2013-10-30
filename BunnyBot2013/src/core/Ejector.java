@@ -14,14 +14,15 @@ import edu.wpi.first.wpilibj.Solenoid;
  */
 public class Ejector 
 {
-    public Ejector(MyJoystick joy, int port1, int port2, int port3, int port4)// Joy will come later
+    private Piston sol;
+    public Ejector(MyJoystick joy, int port1, int port2, int port3)// Joy will come later
     {
-        Piston sol = new Piston(int port1,int port2, int port3, int port4);  
+         sol = new Piston( port1,port2, port3);  
     }
     
     public void run() 
     {
-        if (/*TODO*/)// replace with code that gets the joystick button state
+        //if (/*TODO*/)// replace with code that gets the joystick button state
         {
             sol.solenoidSwitch();
         }
