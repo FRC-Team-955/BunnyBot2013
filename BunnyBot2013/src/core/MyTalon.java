@@ -3,15 +3,16 @@
  * and open the template in the editor.
  */
 package core;
-
+import edu.wpi.first.wpilibj.Talon;
 /**
  *
- * @author warren.elwood
+ * @author aditya.sriram
  */
-public class MyTalon {
-
-    void set(double left) {
-        //throw new java.lang.UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+public class MyTalon extends Talon  {
+    
+    public MyTalon(int channel){
+        super(channel);
+}
+    
     
 }
