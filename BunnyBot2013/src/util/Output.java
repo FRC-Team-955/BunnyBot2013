@@ -87,4 +87,35 @@ public class Output {
             
         }
     }
+    public void Print(int id, int value){/*Print statement for int*/
+        if(checkToPrint(id)){
+            System.out.print(value);
+        }
+    }
+    public void Print(int id, boolean value){/*Print statement for Boolean*/
+        if(checkToPrint(id)){
+            System.out.print(value);
+            
+        }
+    }
+    public void Print(int id, double value){/*Print statement for Double*/
+        if(checkToPrint(id)){
+            System.out.print(value);
+        }
+    }
+    public void Println(int id, int value){/*Println statement for int*/
+        if(checkToPrint(id)){
+            System.out.println(value);
+        }
+    }
+    public void Println(int id, boolean value){/*Println statement for Boolean*/
+        if(checkToPrint(id)){
+            System.out.println(value);
+        }
+    }
+    public void Println(int id, double value){/*Println statement for Double*/
+        if(checkToPrint(id)){
+            System.out.println(value);
+        }
+    }
 }
