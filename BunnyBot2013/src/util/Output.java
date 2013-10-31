@@ -54,4 +54,37 @@ public class Output {
             
         }
     }
+    public void Println(int id, String name, int value){/*Println statement for int*/
+        if(checkToPrint(id)){
+            if(name!=""&&name!=null){
+                System.out.println(name+": "+value);
+            }
+            else {
+                System.out.println(value);
+            }
+            
+        }
+    }
+    public void Println(int id, String name, boolean value){/*Println statement for Boolean*/
+        if(checkToPrint(id)){
+            if(name!=""&&name!=null){
+                System.out.println(name+" is "+value);
+            }
+            else {
+                System.out.println(value);
+            }
+            
+        }
+    }
+    public void Println(int id, String name, double value){/*Println statement for Double*/
+        if(checkToPrint(id)){
+            if(name!=""&&name!=null){
+                System.out.println(name+": "+value);
+            }
+            else {
+                System.out.println(value);
+            }
+            
+        }
+    }
 }
