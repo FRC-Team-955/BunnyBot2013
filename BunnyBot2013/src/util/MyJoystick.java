@@ -12,10 +12,9 @@ import edu.wpi.first.wpilibj.Joystick;
 public class MyJoystick extends Joystick {
     public MyJoystick(int portNumber){
         super(portNumber);
-        System.out.println("Joystick created with port:"+ portNumber);
-        //calls constuctor
+        System.out.println("Joystick created with port:"+ portNumber);       
     }
-    
+    //calls constructor
     public boolean getDebounce(int button){
            boolean lastState = getRawButton(button);
            //make sure the button is set to false? 
