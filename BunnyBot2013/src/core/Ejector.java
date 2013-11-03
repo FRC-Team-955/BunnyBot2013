@@ -4,9 +4,11 @@
  */
 package core;
 
-import util.Piston;
 import util.MyJoystick;
-import edu.wpi.first.wpilibj.Solenoid;
+import edu.wpi.first.wpilibj.DigitalInput;
+
+
+
 
 /**
  *
@@ -14,18 +16,32 @@ import edu.wpi.first.wpilibj.Solenoid;
  */
 public class Ejector 
 {
-    private Piston sol;
-    public Ejector(MyJoystick joy, int port1, int port2, int port3)// Joy will come later
-    {
-         sol = new Piston( port1,port2, port3);  
-    }
-    
-    public void run() 
-    {
-        //if (/*TODO*/)// replace with code that gets the joystick button state
-        {
-            sol.solenoidSwitch();
+ double speed;
+ MyJoystick joy;
+ MyTalon ejectorMotor;
+ DigitalInput limitSwitchFar;
+ DigitalInput limitSwitchClose;
+ public void Ejector(MyJoystick joy){
+     this.joy = joy;   
+            }
+
+public void run(){
+       
+    if(joy.getDebounce(1)){      //TODO get button
+        ejectorMotor.set(speed);
+        
         }
+    
+    if(limitSwitchFar.get()){
+        ejectorMotor.set(-speed);
+     }
+    if(limitSwitchClose.get()){
+        ejectorMotor.set(0);
     }
 }
+}
+         
+         
+
+
 
