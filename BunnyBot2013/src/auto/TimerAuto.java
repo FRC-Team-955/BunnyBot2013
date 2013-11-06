@@ -4,7 +4,7 @@
  */
 package auto;
 
-import util.Vars;
+import util.Config;
 
 /**
  *
@@ -33,7 +33,7 @@ public class TimerAuto {
     
      public int getTime(int distance, double speed){
     
-      int time = (int)Math.ceil((distance * (speed * Vars.MAX_SPEED))/1000); // TODO find units
+      int time = (int)Math.ceil((distance * (speed * Config.MAX_SPEED))/1000); // TODO find units
     
      return time;
    }

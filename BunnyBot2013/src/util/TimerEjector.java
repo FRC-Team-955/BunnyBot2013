@@ -13,9 +13,9 @@ import util.MyJoystick;
  */
 public class TimerEjector {
     MyJoystick joy;
-    int time = Vars.EJECTOR_TIME;// in milliseconds
-    double speed = Vars.EJECTOR_SPEED;
-    MyTalon ejectorTalon = new MyTalon(Vars.EJECTOR_CHANNEL);
+    int time = Config.EJECTOR_TIME;// in milliseconds
+    double speed = Config.EJECTOR_SPEED;
+    MyTalon ejectorTalon = new MyTalon(Config.EJECTOR_CHANNEL);
     Timer timer = new Timer();
 
     public TimerEjector(MyJoystick joy1){   
@@ -24,7 +24,7 @@ public class TimerEjector {
    
             
     public void run() {
-        if(joy.getDebounce(Vars.EJECTOR_BUTTON)) {       //PUT THE RIGHT BUTTON HERE
+        if(joy.getDebounce(Config.EJECTOR_BUTTON)) {       //PUT THE RIGHT BUTTON HERE
             timer.start();
             ejectorTalon.set(speed);
             if(timer.get() < time){
