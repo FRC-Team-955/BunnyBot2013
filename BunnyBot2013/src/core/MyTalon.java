@@ -12,6 +12,7 @@ public class MyTalon extends Talon  {
     
     public MyTalon(int channel){
         super(channel);
+        System.out.println("MyTalon Got to #1");
 }
     
     

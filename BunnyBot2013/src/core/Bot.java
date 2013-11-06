@@ -17,12 +17,17 @@ public class Bot {
     Drive drive = new Drive();
     
     public void Bot(MyJoystick joy){
+        System.out.println("Bot Got to #1");
         this.joy = joy;   
+        System.out.println("Bot Got to #2");
     }
     
     public void botRun(){
+        System.out.println("Bot Got to #3");
         eject.run();
+        System.out.println("Bot Got to #4");
         drive.set(joy.getX(), joy.getY());
+        System.out.println("Bot Got to #5");
     }
 
 

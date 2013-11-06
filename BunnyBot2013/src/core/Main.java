@@ -34,24 +34,26 @@ public class Main extends IterativeRobot {
         Output output = new Output();
 
     public void robotInit() {
-       
+       System.out.println("Main Got to #1");
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-
+System.out.println("Main Got to #2");
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
+        System.out.println("Main Got to #3");
        vect.add(a,b,c);
        c.toArray(array);
        System.out.print(array[0]);
        System.out.print(array[1]);
+       System.out.println("Main Got to #4");
 
     }
     
