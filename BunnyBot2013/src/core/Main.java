@@ -12,6 +12,7 @@ import util.Vector;
 import util.VectorController;
 import util.Output;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import util.MyJoystick;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -25,7 +26,8 @@ public class Main extends IterativeRobot {
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    
+    Bot bot;
+	MyJoystick joy;
     Vector a = new Vector (1,0);
         Vector b = new Vector (1,Math.PI/2);
         Vector c = new Vector (0,0);
@@ -34,6 +36,8 @@ public class Main extends IterativeRobot {
         Output output = new Output();
 
     public void robotInit() {
+	   joy = new MyJoystick(1); 
+	   bot = new Bot(joy);
        System.out.println("Main Got to #1");
     }
 
@@ -48,12 +52,11 @@ System.out.println("Main Got to #2");
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        System.out.println("Main Got to #3");
+	   bot.botRun();
        vect.add(a,b,c);
        c.toArray(array);
        System.out.print(array[0]);
        System.out.print(array[1]);
-       System.out.println("Main Got to #4");
 
     }
     

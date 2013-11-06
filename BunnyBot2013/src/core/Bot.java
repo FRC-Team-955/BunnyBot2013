@@ -13,21 +13,22 @@ import util.MyJoystick ;
  */
 public class Bot {
     MyJoystick joy;
-    Ejector eject = new Ejector();
-    Drive drive = new Drive();
+    Ejector eject;
+    Drive drive;
     
-    public void Bot(MyJoystick joy){
+    public Bot(MyJoystick joy){
         System.out.println("Bot Got to #1");
         this.joy = joy;   
-        System.out.println("Bot Got to #2");
+        eject = new Ejector(joy);
+		drive = new Drive();
     }
     
     public void botRun(){
-        System.out.println("Bot Got to #3");
+        System.out.println("Bot Got to #2");
         eject.run();
-        System.out.println("Bot Got to #4");
+        System.out.println("Bot Got to #3");
         drive.set(joy.getX(), joy.getY());
-        System.out.println("Bot Got to #5");
+        System.out.println("Bot Got to #4");
     }
 
 

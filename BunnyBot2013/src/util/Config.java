@@ -14,7 +14,7 @@ public class Config {
     
     public static final int MAX_SPEED = 10;//feet per second
     public static final int EJECTOR_CHANNEL = 10;
-    public static final int EJECTOR_BUTTON = 78;
+    public static final int EJECTOR_BUTTON = 3;
     public static final int EJECTOR_TIME = 54;
     public static final double EJECTOR_SPEED = 0.76536;
     public static final int CHAN_DRIVE_LEFT1 = 7;

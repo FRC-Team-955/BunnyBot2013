@@ -21,7 +21,7 @@ public class Ejector
  MyTalon ejectorMotor;
  DigitalInput limitSwitchFar;
  DigitalInput limitSwitchClose;
- public void Ejector(MyJoystick joy){
+ public Ejector(MyJoystick joy){
      System.out.println("Ejector Got to #1");
      this.joy = joy;   
      System.out.println("Ejector Got to #2");
