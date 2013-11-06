@@ -29,9 +29,11 @@ public class TimerEjector {
             ejectorTalon.set(speed);
             if(timer.get() < time){
                 ejectorTalon.set(speed);
+                System.out.print("Ejector active");
             }
             else if(timer.get() >= time && timer.get() < time * 2) {
                 ejectorTalon.set(-speed);
+                System.out.print("Ejector retracting");
             }
         }
     }

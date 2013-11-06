@@ -19,7 +19,9 @@ public class MyJoystick extends Joystick {
            boolean lastState = getRawButton(button);
            //make sure the button is set to false? 
            if(lastState == false && lastState ==! getRawButton(button)){
-               return true;  
+               
+               System.out.print("Button pressed");
+               return true; 
            }  
            // If the the button was unpressed and now is pressed it is pressed
            else{
