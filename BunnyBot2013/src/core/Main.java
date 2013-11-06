@@ -10,6 +10,7 @@ package core;
 
 import util.Vector;
 import util.VectorController;
+import util.Output;
 import edu.wpi.first.wpilibj.IterativeRobot;
 
 /**
@@ -30,6 +31,8 @@ public class Main extends IterativeRobot {
         Vector c = new Vector (0,0);
         VectorController vect = new VectorController();
         double[] array = new double[2];
+        Output output = new Output();
+
     public void robotInit() {
        
     }
