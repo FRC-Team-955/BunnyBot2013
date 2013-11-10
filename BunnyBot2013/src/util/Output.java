@@ -10,7 +10,7 @@ package util;
  */
 public class Output {
     static int[] toPrint;
-    public static void initialize(int[] toPrintInput){
+    public Output(int[] toPrintInput){
         toPrint = toPrintInput;
     }
     

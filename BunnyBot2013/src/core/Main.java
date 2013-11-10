@@ -8,6 +8,7 @@
 package core;
 
 
+import edu.wpi.first.wpilibj.Gyro;
 import util.Vector;
 import util.VectorController;
 import util.Output;
@@ -28,17 +29,20 @@ public class Main extends IterativeRobot {
      */
     Bot bot;
 	MyJoystick joy;
+	Gyro gyro = new Gyro(7);
     Vector a = new Vector (1,0);
         Vector b = new Vector (1,Math.PI/2);
         Vector c = new Vector (0,0);
         VectorController vect = new VectorController();
         double[] array = new double[2];
-        Output output = new Output();
+	int[]toPrintBe={1,2,3,3,4,5};
+        Output output = new Output(toPrintBe);
 
     public void robotInit() {
 	   joy = new MyJoystick(1); 
 	   bot = new Bot(joy);
-       System.out.println("Main Got to #1");
+	   gyro.reset();
+       System.out.println("Main Got to #1" + gyro.getAngle());
     }
 
     /**
@@ -55,8 +59,8 @@ System.out.println("Main Got to #2");
 	   bot.botRun();
        vect.add(a,b,c);
        c.toArray(array);
-       System.out.print(array[0]);
-       System.out.print(array[1]);
+       System.out.println(array[0]);
+       System.out.println(array[1]);
 
     }
     

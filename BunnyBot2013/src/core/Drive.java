@@ -4,6 +4,7 @@
  */
 package core;
 import util.Config;
+import util.Output;
 /**
  *
  * @author trevor.jones
@@ -18,7 +19,7 @@ public class Drive {
     //MyTalon rightTalonThree = new MyTalon();
      
     public void set(double x, double y) {
-        System.out.println("Drive Got to #1");
+        Output.println(1, "Output & Bot Got to", 1);
         double left = y+x;
         double right = y-x;
         

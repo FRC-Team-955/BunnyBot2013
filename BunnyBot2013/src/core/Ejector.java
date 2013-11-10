@@ -3,7 +3,7 @@
  * and open the template in the editor.
  */
 package core;
-
+import util.Config;
 import util.MyJoystick;
 import edu.wpi.first.wpilibj.DigitalInput;
 
@@ -22,6 +22,9 @@ public class Ejector
  DigitalInput limitSwitchFar;
  DigitalInput limitSwitchClose;
  public Ejector(MyJoystick joy){
+	 limitSwitchFar= new DigitalInput(Config.LIMIT_SWITCH_FAR_CHAN);
+	 limitSwitchClose =new DigitalInput(Config.LIMIT_SWITCH_CLOSE_CHAN);
+	 ejectorMotor= new MyTalon(Config.EJECTOR_CHANNEL);
      System.out.println("Ejector Got to #1");
      this.joy = joy;   
      System.out.println("Ejector Got to #2");

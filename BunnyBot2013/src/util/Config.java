@@ -19,6 +19,8 @@ public class Config {
     public static final double EJECTOR_SPEED = 0.76536;
     public static final int CHAN_DRIVE_LEFT1 = 7;
     public static final int CHAN_DRIVE_RIGHT1 = 8;
+	public static final int LIMIT_SWITCH_FAR_CHAN = 13;
+	public static final int LIMIT_SWITCH_CLOSE_CHAN = 14;
     
             
     

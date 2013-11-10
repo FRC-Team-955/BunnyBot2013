@@ -24,7 +24,7 @@ public class Bot {
     }
     
     public void botRun(){
-        System.out.println("Bot Got to #2");
+        //System.out.println("Bot Got to #2");
         eject.run();
         System.out.println("Bot Got to #3");
         drive.set(joy.getX(), joy.getY());
