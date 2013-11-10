@@ -8,7 +8,7 @@
 package core;
 
 
-import edu.wpi.first.wpilibj.Gyro;
+import util.MyGyro;      
 import util.Vector;
 import util.VectorController;
 import util.Output;
@@ -28,40 +28,34 @@ public class Main extends IterativeRobot {
      * used for any initialization code.
      */
     Bot bot;
-	MyJoystick joy;
-	Gyro gyro = new Gyro(7);
-    Vector a = new Vector (1,0);
-        Vector b = new Vector (1,Math.PI/2);
-        Vector c = new Vector (0,0);
-        VectorController vect = new VectorController();
-        double[] array = new double[2];
-	int[]toPrintBe={1,2,3,3,4,5};
-        Output output = new Output(toPrintBe);
+    MyJoystick joy;
+    MyGyro gyro;
 
     public void robotInit() {
-	   joy = new MyJoystick(1); 
-	   bot = new Bot(joy);
-	   gyro.reset();
-       System.out.println("Main Got to #1" + gyro.getAngle());
+	joy = new MyJoystick(1); 
+        bot = new Bot(joy);
+        gyro = new MyGyro(2);
+        gyro.reset();
+        System.out.println("Main Got to #1" + gyro.getRoundedAngle(1));
     }
 
     /**
      * This function is called periodically during autonomous
      */
     public void autonomousPeriodic() {
-System.out.println("Main Got to #2");
+        System.out.println("Main Got to #2");
     }
 
     /**
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-	   bot.botRun();
-       vect.add(a,b,c);
-       c.toArray(array);
-       System.out.println(array[0]);
-       System.out.println(array[1]);
+       bot.botRun();
 
+    }
+    
+    public void disabledInit() {
+        gyro.reset();
     }
     
     /**
