@@ -15,7 +15,7 @@ public class Output {
     }
     
     public static boolean checkToPrint(int idNum){
-        for(int count=0; count<=toPrint.length; count++){
+        for(int count=0; count<=toPrint.length-1; count++){
             if(idNum==toPrint[count]){
                 return true;
             }

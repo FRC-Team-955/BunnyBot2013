@@ -4,6 +4,8 @@
  */
 package core;
 import util.MyJoystick ;
+import util.Output;
+import util.TimerEjector;
 /**
  * 
  *
@@ -13,22 +15,22 @@ import util.MyJoystick ;
  */
 public class Bot {
     MyJoystick joy;
-    Ejector eject;
+    TimerEjector eject;
     Drive drive;
     
     public Bot(MyJoystick joy){
-        System.out.println("Bot Got to #1");
+        Output.println(3,"Bot Got to",1);
         this.joy = joy;   
-        eject = new Ejector(joy);
+        eject = new TimerEjector(joy);
 		drive = new Drive();
     }
     
     public void botRun(){
         //System.out.println("Bot Got to #2");
         eject.run();
-        System.out.println("Bot Got to #3");
+        Output.println(3,"Bot Got to",2);
         drive.set(joy.getX(), joy.getY());
-        System.out.println("Bot Got to #4");
+        Output.println(3,"Bot Got to",3);
     }
 
 

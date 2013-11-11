@@ -19,27 +19,27 @@ public class Drive {
     //MyTalon rightTalonThree = new MyTalon();
      
     public void set(double x, double y) {
-        Output.println(1, "Output & Bot Got to", 1);
+        Output.println(4,"Drive Got to",1);
         double left = y+x;
         double right = y-x;
         
         setLeft(left);
         setRight(right);
-        System.out.println("Drive Got to #2");
+        Output.println(4,"Drive Got to",2);
     }
     
     private void setLeft(double left) {
-        System.out.println("Drive Got to #3");
+        Output.println(4,"Drive Got to",3);
         leftTalonOne.set(left);
-        System.out.println("Drive Got to #4");
+        Output.println(4,"Drive Got to",4);
         //leftTalonTwo.set(left);
         //leftTalonThree.set(left);
     }
     
     private void setRight(double right) {
-        System.out.println("Drive Got to #5");
+        Output.println(4,"Drive Got to",5);
         rightTalonOne.set(right);
-        System.out.println("Drive Got to #6");
+        Output.println(4,"Drive Got to",6);
         //rightTalonTwo.set(right);
         //rightTalonThree.set(right);
     }

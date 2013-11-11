@@ -6,6 +6,7 @@ package core;
 import util.Config;
 import util.MyJoystick;
 import edu.wpi.first.wpilibj.DigitalInput;
+import util.Output;
 
 
 
@@ -21,31 +22,34 @@ public class Ejector
  MyTalon ejectorMotor;
  DigitalInput limitSwitchFar;
  DigitalInput limitSwitchClose;
+ boolean retractMode = false;
  public Ejector(MyJoystick joy){
 	 limitSwitchFar= new DigitalInput(Config.LIMIT_SWITCH_FAR_CHAN);
 	 limitSwitchClose =new DigitalInput(Config.LIMIT_SWITCH_CLOSE_CHAN);
 	 ejectorMotor= new MyTalon(Config.EJECTOR_CHANNEL);
-     System.out.println("Ejector Got to #1");
+     Output.println(5,"Ejector Got to",1);
      this.joy = joy;   
-     System.out.println("Ejector Got to #2");
+     Output.println(5,"Ejector Got to",2);
             }
 
 public void run(){
-       System.out.println("Ejector Got to #3");
+       Output.println(5,"Ejector Got to",3);
     if(joy.getDebounce(1)){      //TODO get button
         ejectorMotor.set(speed);
-        System.out.println("Ejector Got to #4");
+        Output.println(5,"Ejector Got to",4);
         }
-    System.out.println("Ejector Got to #5");
-    if(limitSwitchFar.get()){
+    Output.println(5,"Ejector Got to",5);
+	if(retractMode == false && limitSwitchFar.get()){
         ejectorMotor.set(-speed);
-        System.out.println("Ejector Got to #6");
+		retractMode = true;
+        Output.println(5,"Ejector Got to",6);
      }
     if(limitSwitchClose.get()){
         ejectorMotor.set(0);
-        System.out.println("Ejector Got to #7");
+		retractMode = false;
+        Output.println(5,"Ejector Got to",7);
     }
-    System.out.println("Ejector Got to #8");
+    Output.println(5,"Ejector Got to",8);
 }
 }
          

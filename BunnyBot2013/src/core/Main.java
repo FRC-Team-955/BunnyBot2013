@@ -28,8 +28,27 @@ public class Main extends IterativeRobot {
      * used for any initialization code.
      */
     Bot bot;
-    MyJoystick joy;
-    MyGyro gyro;
+	MyJoystick joy;
+	Gyro gyro = new Gyro(7);
+    Vector a = new Vector (1,0);
+        Vector b = new Vector (1,Math.PI/2);
+        Vector c = new Vector (0,0);
+        VectorController vect = new VectorController();
+        double[] array = new double[2];
+		/*Id #s for all classes for Outputs
+		 *auto.Driver = 1
+		 *auto.TimerAuto = 2
+		 *core.Bot = 3
+		 *core.Drive = 4
+		 *core.Ejector = 5
+		 *core.MyTalon = 6
+		 *util.MyJoystick = 7
+		 *util.TimerEjector = 8
+		 *util.Vector = 9
+		 *util.VectorController = 10
+	  To Print all use:{1,2,3,4,5,6,7,8,9,10}*/
+		int[]toBePrint={1,2,3,4,5,7,8,9,10};
+        Output output = new Output(toBePrint);
 
     public void robotInit() {
 	joy = new MyJoystick(1); 
