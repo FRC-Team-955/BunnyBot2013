@@ -4,38 +4,45 @@
  */
 package auto;
 
+import core.Drive;
 import util.Config;
-
+import edu.wpi.first.wpilibj.Timer;
+import util.Vars;
 /**
  *
  * @author aditya.sriram
  */
 public class TimerAuto {
     
-    Driver driver;
+    Drive drive;
     
-    public TimerAuto(Driver driver){
-        this.driver = driver;
+    public TimerAuto(Drive drive){
+        this.drive = drive;
     }
     
     public void run(){
     
-    int i;
-    double k;
     
-    driver.goForward(this.getTime(i=26, k=.7),k=.7);
-    driver.turnRight(i=90);
-       driver.goForward(this.getTime(i=3, k=.7),k=.7);
+        runDistance(10, 1, 0);
     
-    
+        
     }
     
     
-     public int getTime(int distance, double speed){
+     public  void runDistance(int distance, double speed, int angle){
     
-      int time = (int)Math.ceil((distance * (speed * Config.MAX_SPEED))/1000); // TODO find units
-    
-     return time;
+     Timer timer = new Timer();
+     
+     double time = distance / (speed * Vars.MAX_SPEED);
+     
+     timer.start();
+     
+     if(timer.get() <= time){
+     
+          drive.set(1, angle);
+     
+     }
+         
    }
     
     
