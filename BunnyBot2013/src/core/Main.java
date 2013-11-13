@@ -29,7 +29,7 @@ public class Main extends IterativeRobot {
      */
     Bot bot;
 	MyJoystick joy;
-	Gyro gyro = new Gyro(7);
+	MyGyro gyro = new MyGyro(7);
     Vector a = new Vector (1,0);
         Vector b = new Vector (1,Math.PI/2);
         Vector c = new Vector (0,0);
