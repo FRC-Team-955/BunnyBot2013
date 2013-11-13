@@ -47,8 +47,8 @@ public class Main extends IterativeRobot {
 		 *util.Vector = 9
 		 *util.VectorController = 10
                  *util.MyGyro = 11
-	  To Print all use:{1,2,3,4,5,6,7,8,9,10}*/
-		int[]toBePrint={1,2,3,4,5,7,8,9,10};
+	  To Print all use:{1,2,3,4,5,6,7,8,9,10,11}*/
+		int[]toBePrint={1,2,3,4,5,7,8,9,10,11};
         Output output = new Output(toBePrint);
 
     public void robotInit() {
