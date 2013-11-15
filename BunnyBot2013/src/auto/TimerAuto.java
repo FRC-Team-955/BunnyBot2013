@@ -14,6 +14,7 @@ import util.Vars;
  */
 public class TimerAuto {
     
+    boolean firstRun = false;
     Drive drive;
     
     public TimerAuto(Drive drive){
@@ -22,14 +23,20 @@ public class TimerAuto {
     
     public void run(){
     
+        
     
-        runDistance(10, 1, 0);
-    
+        if(!firstRun){
+            
+            runDistance(10, 1, 0,-1);
+            firstRun = true;
+        
+        }
+        
         
     }
     
     
-     public  void runDistance(int distance, double speed, int angle){
+     public  void runDistance(int distance, double speed, int angle, int direction){
     
      Timer timer = new Timer();
      
@@ -37,10 +44,9 @@ public class TimerAuto {
      
      timer.start();
      
-     if(timer.get() <= time){
+     for(;timer.get() <= time;){
      
           drive.set(1, angle);
-     
      }
          
    }
