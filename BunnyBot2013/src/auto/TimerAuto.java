@@ -8,50 +8,84 @@ import core.Drive;
 import util.Config;
 import edu.wpi.first.wpilibj.Timer;
 import util.Vars;
+
 /**
  *
  * @author aditya.sriram
  */
 public class TimerAuto {
-    
-    boolean firstRun = false;
+
+    boolean one = true;
+    boolean two = false;
+    boolean three;
+
     Drive drive;
-    
-    public TimerAuto(Drive drive){
+    Timer timer = new Timer();
+
+    public TimerAuto(Drive drive) {
         this.drive = drive;
     }
-    
-    public void run(){
-    
-        
-    
-        if(!firstRun){
-            
-            runDistance(10, 1, 0,-1);
-            firstRun = true;
-        
+
+    public void run() {
+
+        if (one) {
+
+            double time = 10 / (1 * Vars.MAX_SPEED);
+
+            timer.start();
+
+            if (timer.get() <= time) {
+
+                drive.set(1, 0);
+
+            } 
+            else {
+
+                two = true;
+                timer.stop();
+                timer.reset();
+
+            }
         }
-        
-        
+
+        if (two) {
+
+            double time = 10 / (1 * Vars.MAX_SPEED);
+
+            timer.start();
+
+            if (timer.get() <= time) {
+
+                drive.set(1, 1);
+
+            } else {
+
+                three = true;
+                timer.stop();
+                timer.reset();
+
+            }
+
+        }
+        if (three) {
+
+            double time = 10 / (1 * Vars.MAX_SPEED);
+
+            timer.start();
+
+            if (timer.get() <= time) {
+
+                drive.set(1, 0);
+
+            } else {
+
+                three = true;
+                timer.stop();
+                timer.reset();
+
+            }
+
+        }
     }
-    
-    
-     public  void runDistance(int distance, double speed, int angle, int direction){
-    
-     Timer timer = new Timer();
-     
-     double time = distance / (speed * Vars.MAX_SPEED);
-     
-     timer.start();
-     
-     for(;timer.get() <= time;){
-     
-          drive.set(1, angle);
-     }
-         
-   }
-    
-    
-    
-    
+
 }
