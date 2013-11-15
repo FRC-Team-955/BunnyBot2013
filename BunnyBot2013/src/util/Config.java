@@ -21,7 +21,7 @@ public class Config {
     public static final int CHAN_DRIVE_RIGHT1 = 8;
 	public static final int LIMIT_SWITCH_FAR_CHAN = 13;
 	public static final int LIMIT_SWITCH_CLOSE_CHAN = 14;
-    
+    public static final int BUTTON_ARRAY = 12;
             
     
 }

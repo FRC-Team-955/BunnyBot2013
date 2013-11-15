@@ -11,12 +11,10 @@ import edu.wpi.first.wpilibj.Joystick;
  */
 public class MyJoystick extends Joystick {
     boolean[] buttonState;
-    
     public MyJoystick(int portNumber){
         super(portNumber);
         Output.println(7,"Joystick created with port:", portNumber);
-        
-        
+        boolean [] buttonState  = new boolean [Config.BUTTON_ARRAY];
         
     }
     //calls constructor
@@ -39,4 +37,4 @@ public class MyJoystick extends Joystick {
    
     
 }
-//WAR-WAR IS MAD MAD 
+ //omfg war-war no understand gg.
