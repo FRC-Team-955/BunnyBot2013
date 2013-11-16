@@ -15,7 +15,9 @@ public class MyJoystick extends Joystick {
         super(portNumber);
         Output.println(7,"Joystick created with port:", portNumber);
         boolean [] buttonState  = new boolean [Config.BUTTON_ARRAY];
-        
+        for( int i = 0; i < Config.BUTTON_ARRAY; i++){
+            buttonState[i] = false;
+        }
     }
     //calls constructor
     public boolean getDebounce(int button){
