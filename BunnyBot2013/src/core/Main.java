@@ -8,9 +8,7 @@
 package core;
 
 
-import util.MyGyro;      
-import util.Vector;
-import util.VectorController;
+import util.MyGyro;
 import util.Output;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import util.MyJoystick;
@@ -30,10 +28,7 @@ public class Main extends IterativeRobot {
     Bot bot;
 	MyJoystick joy;
 	MyGyro gyro = new MyGyro(7);
-    Vector a = new Vector (1,0);
-        Vector b = new Vector (1,Math.PI/2);
-        Vector c = new Vector (0,0);
-        VectorController vect = new VectorController();
+        
         double[] array = new double[2];
 		/*Id #s for all classes for Outputs
 		 *auto.Driver = 1
