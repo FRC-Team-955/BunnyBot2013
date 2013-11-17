@@ -10,23 +10,13 @@ package util;
  *
  * @author Ryan
  */
-public class VectorController {
+public class MyMath {
     
-   public VectorController(){
+   public MyMath(){
         
     }
    
-    public void add(Vector a, Vector b, Vector c){
-        double x = a.getX() + b.getY();
-        double y = a.getY() + b.getY();
-        c.setComponets(x, y);
-    }
-
-    public void subtratic(Vector a, Vector b, Vector c){
-       double x = a.getX() - b.getY();
-       double y = a.getY() - b.getY();
-       c.setComponets(x, y);
-    }
+ 
     
     public static double round(double num, int digits) {
         double scalar = power(10,digits);
