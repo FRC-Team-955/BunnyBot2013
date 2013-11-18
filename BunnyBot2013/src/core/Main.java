@@ -27,7 +27,7 @@ public class Main extends IterativeRobot {
      */
     Bot bot;
 	MyJoystick joy;
-	MyGyro gyro = new MyGyro(7);
+	MyGyro gyro = new MyGyro(2);
         
         double[] array = new double[2];
 		/*Id #s for all classes for Outputs
@@ -49,7 +49,6 @@ public class Main extends IterativeRobot {
     public void robotInit() {
 	joy = new MyJoystick(1); 
         bot = new Bot(joy);
-        gyro = new MyGyro(2);
         gyro.reset();
         System.out.println("Main Got to #1" + gyro.getRoundedAngle(1));
     }
