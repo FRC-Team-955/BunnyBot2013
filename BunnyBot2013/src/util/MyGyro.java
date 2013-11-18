@@ -3,18 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package util;
+
 import edu.wpi.first.wpilibj.Gyro;
+
 /**
  *
  * @author coders
  */
 public class MyGyro extends Gyro {
+
     public MyGyro(int channel) {
         super(channel);
     }
     public double getRoundedAngle(int digits) {
-        return VectorController.round(this.getAngle(),digits);
+        return VectorController.round(this.getAngle(), digits);
     }
+
 }

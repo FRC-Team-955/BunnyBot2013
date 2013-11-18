@@ -7,7 +7,6 @@ package auto;
 import core.Drive;
 import util.Config;
 import edu.wpi.first.wpilibj.Timer;
-import util.Vars;
 
 /**
  *
@@ -22,15 +21,17 @@ public class TimerAuto {
     Drive drive;
     Timer timer = new Timer();
 
-    public TimerAuto(Drive drive) {
+    public
+            TimerAuto(Drive drive) {
         this.drive = drive;
     }
 
-    public void run() {
+    public
+            void run() {
 
         if (one) {
 
-            double time = 10 / (1 * Vars.MAX_SPEED);
+            double time = 10 / (1 *     Config.MAX_SPEED);
 
             timer.start();
 
@@ -38,7 +39,7 @@ public class TimerAuto {
 
                 drive.set(1, 0);
 
-            } 
+            }
             else {
 
                 two = true;
@@ -50,7 +51,7 @@ public class TimerAuto {
 
         if (two) {
 
-            double time = 10 / (1 * Vars.MAX_SPEED);
+            double time = 10 / (1 * Config.MAX_SPEED);
 
             timer.start();
 
@@ -58,7 +59,8 @@ public class TimerAuto {
 
                 drive.set(1, 1);
 
-            } else {
+            }
+            else {
 
                 three = true;
                 timer.stop();
@@ -69,7 +71,7 @@ public class TimerAuto {
         }
         if (three) {
 
-            double time = 10 / (1 * Vars.MAX_SPEED);
+            double time = 10 / (1 * Config.MAX_SPEED);
 
             timer.start();
 
@@ -77,7 +79,8 @@ public class TimerAuto {
 
                 drive.set(1, 0);
 
-            } else {
+            }
+            else {
 
                 three = true;
                 timer.stop();
