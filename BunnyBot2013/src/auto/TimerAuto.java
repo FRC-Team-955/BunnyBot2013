@@ -16,32 +16,33 @@ public class TimerAuto {
 
     boolean one = true;
     boolean two = false;
-    boolean three;
+    boolean three = false;
 
     Drive drive;
     Timer timer = new Timer();
 
-    public
-            TimerAuto(Drive drive) {
+    public TimerAuto(Drive drive) {
         this.drive = drive;
     }
 
-    public
-            void run() {
+    public void run() {
 
         if (one) {
 
-            double time = 10 / (1 *     Config.MAX_SPEED);
+            double time = 10 / (1 * Config.MAX_SPEED);
 
             timer.start();
 
             if (timer.get() <= time) {
 
                 drive.set(1, 0);
-
-            }
+                      }
+ 
+            
+            
             else {
-
+                
+                one = false;
                 two = true;
                 timer.stop();
                 timer.reset();
@@ -59,9 +60,9 @@ public class TimerAuto {
 
                 drive.set(1, 1);
 
-            }
-            else {
+            } else {
 
+                two = false;
                 three = true;
                 timer.stop();
                 timer.reset();
@@ -79,10 +80,9 @@ public class TimerAuto {
 
                 drive.set(1, 0);
 
-            }
-            else {
-
-                three = true;
+            } else {
+                
+                three = false;
                 timer.stop();
                 timer.reset();
 
