@@ -4,6 +4,7 @@
  */
 package core;
 
+import util.MyTalon;
 import util.Config;
 import util.MyJoystick;
 import edu.wpi.first.wpilibj.DigitalInput;

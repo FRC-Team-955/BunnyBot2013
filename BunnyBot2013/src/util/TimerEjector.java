@@ -4,7 +4,6 @@
  */
 package util;
 
-import core.MyTalon;
 import edu.wpi.first.wpilibj.Timer;
 import util.MyJoystick;
 
