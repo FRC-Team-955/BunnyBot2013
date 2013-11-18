@@ -3,7 +3,6 @@
  * and open the template in the editor.
  */
 package core;
-import util.MyTalon;
 import util.Config;
 import util.MyJoystick;
 import edu.wpi.first.wpilibj.DigitalInput;
