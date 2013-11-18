@@ -17,7 +17,7 @@ public class MyGyro extends Gyro {
         super(channel);
     }
     public double getRoundedAngle(int digits) {
-        return VectorController.round(this.getAngle(), digits);
+        return MyMath.round(this.getAngle(), digits);
     }
 
 }

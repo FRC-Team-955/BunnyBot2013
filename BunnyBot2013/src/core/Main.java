@@ -8,7 +8,7 @@ package core;
 
 import util.MyGyro;
 import util.Vector;
-import util.VectorController;
+import util.MyMath;
 import util.Output;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import util.MyJoystick;
