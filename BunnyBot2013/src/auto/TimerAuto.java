@@ -45,7 +45,8 @@ public class TimerAuto {
                 two = true;
                 timer.stop();
                 timer.reset();
-
+               
+                System.out.println("Enter else");
             }
         }
 
