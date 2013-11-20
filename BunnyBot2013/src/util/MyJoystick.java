@@ -14,7 +14,7 @@ public class MyJoystick extends Joystick
     boolean[] buttonState;
     
     /**
-     * Calls and creates a new joystick; the constructor
+     * Calls and creates a new joystick; the constructor.
      * @param portNumber 
      */
     public MyJoystick(int portNumber)

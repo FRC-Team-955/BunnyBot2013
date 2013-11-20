@@ -9,6 +9,7 @@ package util;
 /**
  *
  * @author Ryan
+ * Custom math functions: round and power.
  */
 public class MyMath 
 {   
