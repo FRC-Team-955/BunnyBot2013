@@ -6,45 +6,40 @@ package core;
 import util.MyTalon;
 import util.Config;
 import util.Output;
+
 /**
- *
  * @author trevor.jones
  */
-public class Drive {
-    MyTalon leftTalonOne = new MyTalon(Config.CHAN_DRIVE_LEFT1);
+public class Drive 
+{
+    MyTalon leftTalonOne = new MyTalon(Config.chnDriveLeft1);
     //MyTalon leftTalonTwo = new MyTalon();
     //MyTalon leftTalonThree = new MyTalon();
     
-    MyTalon rightTalonOne = new MyTalon(Config.CHAN_DRIVE_RIGHT1);
+    MyTalon rightTalonOne = new MyTalon(Config.chnDriveRight1);
     //MyTalon rightTalonTwo = new MyTalon();
     //MyTalon rightTalonThree = new MyTalon();
      
-    public void set(double x, double y) {
-        Output.println(4,"Drive Got to",1);
+    public void set(double x, double y) 
+    {
         double left = y+x;
         double right = y-x;
         
         setLeft(left);
         setRight(right);
-        Output.println(4,"Drive Got to",2);
     }
     
-    private void setLeft(double left) {
-        Output.println(4,"Drive Got to",3);
+    private void setLeft(double left) 
+    {
         leftTalonOne.set(left);
-        Output.println(4,"Drive Got to",4);
         //leftTalonTwo.set(left);
         //leftTalonThree.set(left);
     }
     
-    private void setRight(double right) {
-        Output.println(4,"Drive Got to",5);
+    private void setRight(double right) 
+    {
         rightTalonOne.set(right);
-        Output.println(4,"Drive Got to",6);
         //rightTalonTwo.set(right);
         //rightTalonThree.set(right);
     }
-    
-    
-    
 }

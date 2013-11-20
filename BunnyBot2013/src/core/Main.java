@@ -11,6 +11,7 @@ package core;
 import util.MyGyro;
 import util.Output;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import util.Config;
 import util.MyJoystick;
 
 /**
@@ -20,63 +21,46 @@ import util.MyJoystick;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-public class Main extends IterativeRobot {
+public class Main extends IterativeRobot 
+{
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
     Bot bot;
-	MyJoystick joy;
-	MyGyro gyro = new MyGyro(2);
-        
-        double[] array = new double[2];
-		/*Id #s for all classes for Outputs
-		 *auto.Driver = 1
-		 *auto.TimerAuto = 2
-		 *core.Bot = 3
-		 *core.Drive = 4
-		 *core.Ejector = 5
-		 *core.MyTalon = 6
-		 *util.MyJoystick = 7
-		 *util.TimerEjector = 8
-		 *util.Vector = 9
-		 *util.VectorController = 10
-                 *util.MyGyro = 11
-	  To Print all use:{1,2,3,4,5,6,7,8,9,10,11}*/
-		int[]toBePrint={1,2,3,4,5,7,8,9,10,11};
-        Output output = new Output(toBePrint);
+    MyJoystick joy;    
 
-    public void robotInit() {
-	joy = new MyJoystick(1); 
+    public void robotInit() 
+    {
+	joy = new MyJoystick(Config.chnJoystick); 
         bot = new Bot(joy);
-        gyro.reset();
-        System.out.println("Main Got to #1" + gyro.getRoundedAngle(1));
+        Output.setIdArray(Config.outputArray);
     }
 
     /**
      * This function is called periodically during autonomous
      */
-    public void autonomousPeriodic() {
-        System.out.println("Main Got to #2");
+    public void autonomousPeriodic() 
+    {
     }
 
     /**
      * This function is called periodically during operator control
      */
-    public void teleopPeriodic() {
+    public void teleopPeriodic() 
+    {
        bot.botRun();
-
     }
     
-    public void disabledInit() {
-        gyro.reset();
+    public void disabledInit() 
+    {
     }
     
     /**
      * This function is called periodically during test mode
      */
-    public void testPeriodic() {
+    public void testPeriodic()
+    {
     
     }
-    
 }

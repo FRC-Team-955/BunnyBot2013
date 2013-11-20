@@ -7,21 +7,39 @@
 package util;
 
 /**
- *
  * @author Merfoo
  */
-public class Config {
+
+/*  Shor Hand Names
+    chn = channel
+    enc = encoder
+    bt = button
+    ls = limit switch
+*/
+
+public class Config
+{
+    // Drive Related
+    public static final int driveMaxSpeed = 10;     // Feet per second
+    public static final int chnDriveLeft1 = 7;
+    public static final int chnDriveRight1 = 8;
     
-    public static final int MAX_SPEED = 10;//feet per second
-    public static final int EJECTOR_CHANNEL = 10;
-    public static final int EJECTOR_BUTTON = 3;
-    public static final int EJECTOR_TIME = 2;
-    public static final double EJECTOR_SPEED = 0.76536;
-    public static final int CHAN_DRIVE_LEFT1 = 7;
-    public static final int CHAN_DRIVE_RIGHT1 = 8;
-	public static final int LIMIT_SWITCH_FAR_CHAN = 13;
-	public static final int LIMIT_SWITCH_CLOSE_CHAN = 14;
-    public static final int BUTTON_ARRAY = 12;
-            
+    // Ejector Related
+    public static final double ejectorSpeed = 0.76536;
+    public static final int ejectorTime = 2;
+    public static final int chnLsClose = 14;
+    public static final int chnLsFar = 13;
+    public static final int chnEjector = 10;
     
+    // Joystick Related
+    public static final int chnJoystick = 1;
+    public static final int buttonsOnJoystick = 12;
+    public static final int btEjector = 3;
+    
+    // Output Related
+    public static final int driveId = 1;
+    public static final int ejectorId = 2;
+    public static final int joystickId = 3;
+    public static final int talonId = 4;
+    public static int[] outputArray = { driveId, ejectorId, joystickId, talonId };
 }

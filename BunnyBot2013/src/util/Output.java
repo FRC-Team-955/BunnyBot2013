@@ -8,115 +8,70 @@ package util;
  * @author matthew.sundberg
  *
  */
-public class Output {
-    static int[] toPrint;
-    public Output(int[] toPrintInput){
-        toPrint = toPrintInput;
+public class Output 
+{
+    private static int[] idArray;
+    
+    public static void setIdArray(int[] newIdArray)
+    {
+        idArray = newIdArray;
     }
     
-    public static boolean checkToPrint(int idNum){
-        for(int count=0; count<=toPrint.length-1; count++){
-            if(idNum==toPrint[count]){
+    public static boolean checkToPrint(int id)
+    {
+        for(int index = 0; index < idArray.length; index++)
+            if(id == idArray[index])
                 return true;
-            }
-        }/*End of the loop to test if is included in output array.*/
+        
         return false;
     }
-    public static void print(int id, String name, int value){/*Print statement for int*/
-        if(checkToPrint(id)){
-            if(name!=""){
-                System.out.print(name+": "+value);
-            }
-            else {
-                System.out.print(value);
-            }
-            
-        }
-    }
-    public static void print(int id, String name, boolean value){/*Print statement for Boolean*/
-        if(checkToPrint(id)){
-            if(name!=""&&name!=null){
-                System.out.print(name+" is "+value);
-            }
-            else {
-                System.out.print(value);
-            }
-            
-        }
-    }
-    public static void print(int id, String name, double value){/*Print statement for Double*/
-        if(checkToPrint(id)){
-            if(name!=""&&name!=null){
-                System.out.print(name+": "+value);
-            }
-            else {
-                System.out.print(value);
-            }
-            
-        }
-    }
-    public static void println(int id, String name, int value){/*Println statement for int*/
-        if(checkToPrint(id)){
-            if(name!=""&&name!=null){
-                System.out.println(name+": "+value);
-            }
-            else {
-                System.out.println(value);
-            }
-            
-        }
-    }
-    public static void println(int id, String name, boolean value){/*Println statement for Boolean*/
-        if(checkToPrint(id)){
-            if(name!=""&&name!=null){
-                System.out.println(name+" is "+value);
-            }
-            else {
-                System.out.println(value);
-            }
-            
-        }
-    }
-    public static void println(int id, String name, double value){/*Println statement for Double*/
-        if(checkToPrint(id)){
-            if(name!=""&&name!=null){
-                System.out.println(name+": "+value);
-            }
-            else {
-                System.out.println(value);
-            }
-            
-        }
-    }
-    public static void print(int id, int value){/*Print statement for int*/
-        if(checkToPrint(id)){
-            System.out.print(value);
-        }
-    }
-    public static void print(int id, boolean value){/*Print statement for Boolean*/
-        if(checkToPrint(id)){
-            System.out.print(value);
-            
-        }
-    }
-    public static void print(int id, double value){/*Print statement for Double*/
-        if(checkToPrint(id)){
-            System.out.print(value);
-        }
-    }
-    public static void println(int id, int value){/*Println statement for int*/
-        if(checkToPrint(id)){
+    
+    public static void println(int id, String value)
+    {
+        if(checkToPrint(id))
             System.out.println(value);
-        }
     }
-    public static void println(int id, boolean value){/*Println statement for Boolean*/
-        if(checkToPrint(id)){
-            System.out.println(value);
+    
+    public static void addId(int id)
+    {
+        if(checkToPrint(id))
+            return;
+        
+        int[] newIdArray = new int[idArray.length + 1];
+        
+        for(int index = 0; index < newIdArray.length; index++)
+        {
+            if((index + 1) == newIdArray.length)
+                newIdArray[index] = id;
+            
+            else
+                newIdArray[index] = idArray[index];
         }
+        
+        setIdArray(newIdArray);
     }
-    public static void println(int id, double value){/*Println statement for Double*/
-        if(checkToPrint(id)){
-            System.out.println(value);
+    
+    public static void removeId(int id)
+    {
+        if(!checkToPrint(id))
+            return;
+        
+        int[] newIdArray = new int[idArray.length - 1];
+        
+        for(int currentIndex = 0, newIndex = 0; currentIndex < idArray.length; currentIndex++)
+        {
+            if(idArray[currentIndex] == id)
+                continue;
+            
+            newIdArray[newIndex++] = idArray[currentIndex];
         }
+        
+        setIdArray(newIdArray);
+    }
+    
+    public static void printArray()
+    {
+        for(int i = 0; i < idArray.length; i++)
+            System.out.println(idArray[i]);
     }
 }

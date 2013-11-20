@@ -10,11 +10,15 @@ import edu.wpi.first.wpilibj.Gyro;
  *
  * @author coders
  */
-public class MyGyro extends Gyro {
-    public MyGyro(int channel) {
+public class MyGyro extends Gyro 
+{
+    public MyGyro(int channel)
+    {
         super(channel);
     }
-    public double getRoundedAngle(int digits) {
+    
+    public double getRoundedAngle(int digits) 
+    {
         return MyMath.round(this.getAngle(),digits);
     }
 }

@@ -10,34 +10,32 @@ package util;
  *
  * @author Ryan
  */
-public class MyMath {
-    
-   public MyMath(){
-        
-    }
-   
- 
-    
-    public static double round(double num, int digits) {
+public class MyMath 
+{    
+    public static double round(double num, int digits) 
+    {
         double scalar = power(10,digits);
         num *= scalar; 
         double dec = num - Math.floor(num);
         num = Math.floor(num);
 
-        if(dec >= .5) {
+        if(dec >= .5) 
             num++;
-        }
+        
         num /= scalar;
         return num;       
-   }         
-    public static double power(double a, double b) {
+    }  
+    
+    public static double power(double a, double b) 
+    {
         double temp = a;
-        for(int i = 1; i<b; i++) {
+        
+        for(int i = 1; i<b; i++) 
             a *= temp;
-        }
+        
         if(b==0)
             return 1;
+        
         return a;
-   }    
-            
+    }          
 }

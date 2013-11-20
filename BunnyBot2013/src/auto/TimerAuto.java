@@ -29,14 +29,13 @@ public class TimerAuto {
 
         if (one) {
 
-            double time = 10 / (1 * Config.MAX_SPEED);
+            double time = 10 / (1 * Config.driveMaxSpeed);
 
             timer.start();
 
             if (timer.get() <= time) {
-
                 drive.set(1, 0);
-                      }
+            }
  
             
             
@@ -52,7 +51,7 @@ public class TimerAuto {
 
         if (two) {
 
-            double time = 10 / (1 * Config.MAX_SPEED);
+            double time = 10 / (1 * Config.driveMaxSpeed);
 
             timer.start();
 
@@ -68,11 +67,11 @@ public class TimerAuto {
                 timer.reset();
 
             }
-
         }
+        
         if (three) {
 
-            double time = 10 / (1 * Config.MAX_SPEED);
+            double time = 10 / (1 * Config.driveMaxSpeed);
 
             timer.start();
 
@@ -87,8 +86,6 @@ public class TimerAuto {
                 timer.reset();
 
             }
-
         }
     }
-
 }
