@@ -14,6 +14,9 @@ import util.Output;
  */
 public class Bot 
 {
+    /**
+     * 
+     */
     MyJoystick joy;
     TimerEjector eject;
     Drive drive;
