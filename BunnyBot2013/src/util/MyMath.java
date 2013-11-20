@@ -11,7 +11,13 @@ package util;
  * @author Ryan
  */
 public class MyMath 
-{    
+{   
+    /**
+     * returns num rounded to x digits.
+     * @param num
+     * @param digits
+     * @return 
+     */
     public static double round(double num, int digits) 
     {
         double scalar = power(10,digits);
@@ -25,7 +31,12 @@ public class MyMath
         num /= scalar;
         return num;       
     }  
-    
+    /**
+     * Returns a to the power of b.
+     * @param a
+     * @param b
+     * @return 
+     */
     public static double power(double a, double b) 
     {
         double temp = a;
