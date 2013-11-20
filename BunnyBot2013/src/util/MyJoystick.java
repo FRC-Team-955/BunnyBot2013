@@ -13,18 +13,31 @@ public class MyJoystick extends Joystick
 {
     boolean[] buttonState;
     
+    /**
+     * Calls and creates a new joystick; the constructor
+     * @param portNumber 
+     */
     public MyJoystick(int portNumber)
     {
         super(portNumber);
+        /*
+         * Start of code for Debounce; creates the set of all buttons.
+         */  
         boolean [] buttonState  = new boolean [Config.buttonsOnJoystick];
         
         for(int i = 0; i < Config.buttonsOnJoystick; i++)
             buttonState[i] = false;
-        
+        /*
+         * Sets all values for Debounce to false.
+         */
         Output.println(Config.joystickId,"Joystick created with port: " + portNumber);
     }
-    
-    //calls constructor
+
+    /**
+     * returns the state of a button
+     * @param button
+     * @return
+     */
     public boolean getDebounce(int button)
     {
         if(buttonState[button] == false && buttonState[button] ==! getRawButton(button))
