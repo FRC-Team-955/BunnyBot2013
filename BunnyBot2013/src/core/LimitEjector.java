@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import util.Output;
 
 /**
- *Makes an ejector eject an object.
+ * Controls the ejector using limit switches.
  * @author warren.elwood
  */
 
@@ -23,10 +23,12 @@ public class LimitEjector
     DigitalInput limitSwitchClose;
     boolean retractMode = false;
     double speed;
+    
     /**
-     * 
-     * @param joystick gets a button from a joystick.
+     * Constructor takes a joystick while creating the limit switches.
+     * @param joystick 
      */
+    
     public LimitEjector(MyJoystick joystick)
     {
         limitSwitchFar= new DigitalInput(Config.chnLsFar);
@@ -34,7 +36,11 @@ public class LimitEjector
         ejectorMotor= new MyTalon(Config.chnEjector);
         joy = joystick;   
     }
-
+    
+    /**
+     * Extends and retracts the ejector when a button is pressed.
+     */
+    
     public void run()
     {
         if(joy.getDebounce(Config.btEjector))     //TODO get button
