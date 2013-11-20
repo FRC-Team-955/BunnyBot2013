@@ -20,7 +20,7 @@ public class Bot
     Drive drive;
     /**
      * Creates a joystick, ejector, and drive.
-     * @param joystick The values given by the joystick.
+     * @param joystick 
      */
     public Bot(MyJoystick joystick)
     {
