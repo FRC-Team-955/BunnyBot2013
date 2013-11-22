@@ -26,7 +26,7 @@ public class MyJoystick extends Joystick
         /*
          * Start of code for Debounce; creates the set of all buttons.
          */  
-        boolean [] buttonState  = new boolean [Config.buttonsOnJoystick];
+         buttonState = new boolean[Config.buttonsOnJoystick];
         
         for(int i = 0; i < Config.buttonsOnJoystick; i++)
             buttonState[i] = false;

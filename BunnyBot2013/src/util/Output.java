@@ -12,6 +12,11 @@ public class Output
 {
     private static int[] idArray;
     
+	public Output(int[] newIdArray)
+	{
+		idArray = newIdArray;
+	}
+	
     /**
      * Sets the values of the idArray (includes the id numbers of the classes to have included outputs print).
      * @param newIdArray 

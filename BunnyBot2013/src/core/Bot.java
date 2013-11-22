@@ -14,7 +14,7 @@ public class Bot
 {
     
     MyJoystick joy;
-    TimerEjector eject;
+    LimitEjector eject;
     Drive drive;
     
     /**
@@ -24,7 +24,7 @@ public class Bot
     public Bot(MyJoystick joystick)
     {
         joy = joystick;   
-        eject = new TimerEjector(joy);
+        eject = new LimitEjector(joy);
         drive = new Drive();
     }
     

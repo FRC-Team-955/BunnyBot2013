@@ -19,11 +19,12 @@ import util.Output;
 public class Drive 
 {
     MyTalon leftTalonOne = new MyTalon(Config.chnDriveLeft1);
-    //MyTalon leftTalonTwo = new MyTalon();
+    MyTalon leftTalonTwo = new MyTalon(Config.chnDriveLeft2);
     //MyTalon leftTalonThree = new MyTalon();
+	
     
     MyTalon rightTalonOne = new MyTalon(Config.chnDriveRight1);
-    //MyTalon rightTalonTwo = new MyTalon();
+    MyTalon rightTalonTwo = new MyTalon(Config.chnDriveRight2);
     //MyTalon rightTalonThree = new MyTalon();
      
     /**
@@ -34,10 +35,20 @@ public class Drive
     public void set(double x, double y) 
     {
         double left = y+x;
-        double right = y-x;
+        double right = -(y-x);
         
-        setLeft(left);
-        setRight(right);
+		setLeft(left);
+		setRight(right);
+		/*
+		Output.println(Config.driveId, "Left: " + leftTalonOne.get() + " Right: " + rightTalonOne.get() + "Left2: " + leftTalonTwo.get() + " Right2: " + rightTalonTwo.get());
+		double goFaster = 0.50;
+        setLeft(goFaster);
+        setRight(-goFaster);
+		* 
+		* This code exists for testing of talon and Talon sr speeds, especially at low values.
+		* 
+		*/ 
+		
     }
     
     /**
@@ -47,7 +58,7 @@ public class Drive
     private void setLeft(double left) 
     {
         leftTalonOne.set(left);
-        //leftTalonTwo.set(left);
+        leftTalonTwo.set(left);
         //leftTalonThree.set(left);
     }
     
@@ -58,7 +69,7 @@ public class Drive
     private void setRight(double right) 
     {
         rightTalonOne.set(right);
-        //rightTalonTwo.set(right);
+        rightTalonTwo.set(right);
         //rightTalonThree.set(right);
     }
 }

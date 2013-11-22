@@ -30,12 +30,14 @@ public class Main extends IterativeRobot
      */
     Bot bot;
     MyJoystick joy;    
-
+	Output print;
+	
     public void robotInit() 
     {
-	joy = new MyJoystick(Config.chnJoystick); 
+        print = new Output(Config.getOutputArray());
+		joy = new MyJoystick(Config.chnJoystick); 
         bot = new Bot(joy);
-        Output.setIdArray(Config.outputArray);
+
     }
 
     /**
