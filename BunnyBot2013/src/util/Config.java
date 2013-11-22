@@ -6,17 +6,15 @@
 
 package util;
 
-/**
- * @author Merfoo
- */
-
 /*  Shor Hand Names
     chn = channel
     enc = encoder
     bt = button
     ls = limit switch
 */
-
+/**
+ * All of the configurations.
+ */
 public class Config
 {
     // Drive Related
