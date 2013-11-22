@@ -13,7 +13,6 @@ import util.Output;
  * Controls the ejector using limit switches.
  * @author warren.elwood
  */
-
 public class LimitEjector 
 
 {
@@ -28,7 +27,6 @@ public class LimitEjector
      * Constructor takes a joystick while creating the limit switches.
      * @param joystick 
      */
-    
     public LimitEjector(MyJoystick joystick)
     {
         limitSwitchFar= new DigitalInput(Config.chnLsFar);
@@ -40,7 +38,6 @@ public class LimitEjector
     /**
      * Extends and retracts the ejector when a button is pressed.
      */
-    
     public void run()
     {
         if(joy.getDebounce(Config.btEjector))     //TODO get button

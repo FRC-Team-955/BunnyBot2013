@@ -5,12 +5,10 @@
 package core;
 import util.MyJoystick ;
 import util.Output;
+
 /**
  * Creates and runs joystick, ejector, and drive classes. 
  *
- * @author seraj.bonakdar & troy.jameson
- * 
- * 
  */
 public class Bot 
 {
@@ -18,6 +16,7 @@ public class Bot
     MyJoystick joy;
     TimerEjector eject;
     Drive drive;
+    
     /**
      * Creates a joystick, ejector, and drive.
      * @param joystick 
@@ -28,6 +27,7 @@ public class Bot
         eject = new TimerEjector(joy);
         drive = new Drive();
     }
+    
     /**
      * Runs the ejector and the drive.
      */

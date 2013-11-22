@@ -51,6 +51,7 @@ public class TimerEjector
             
             Output.println(Config.ejectorId,"Ejector Active!" + true);
         }
+        
         //If the ejector goes for the set amount of time, have it go back and set isRetracting true
         else if(isExtending)
         {
@@ -63,6 +64,7 @@ public class TimerEjector
                 Output.println(Config.ejectorId, "Ejector Retracting!");
             }
         }
+        
         //if the ejector isRetracting, and it has retracted for the set amount of time, then stop the ejector,
         //reset the timer, and set isRetracted.
         else if(isRetracting) 
