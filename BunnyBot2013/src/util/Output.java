@@ -5,7 +5,7 @@
 package util;
 
 /**
- * 
+ * @author Matthew
  * Replaces System.out.println(); with controllable printing.
  */
 public class Output 

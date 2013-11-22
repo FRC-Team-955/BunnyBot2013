@@ -7,8 +7,7 @@
 package util;
 
 /**
- *
- * 
+ * @author Pedro
  * Custom math functions: round and power.
  */
 public class MyMath 
