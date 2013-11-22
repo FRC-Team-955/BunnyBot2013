@@ -10,8 +10,8 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import util.Output;
 
 /**
+ * @author Warren
  * Controls the ejector using limit switches.
- * @author warren.elwood
  */
 public class LimitEjector 
 

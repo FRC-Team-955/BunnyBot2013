@@ -13,6 +13,7 @@ package util;
     ls = limit switch
 */
 /**
+ * @author Everyone
  * All of the configurations.
  */
 public class Config

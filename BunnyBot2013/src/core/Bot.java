@@ -7,8 +7,8 @@ import util.MyJoystick ;
 import util.Output;
 
 /**
+ * @author Trevor
  * Creates and runs joystick, ejector, and drive classes. 
- *
  */
 public class Bot 
 {

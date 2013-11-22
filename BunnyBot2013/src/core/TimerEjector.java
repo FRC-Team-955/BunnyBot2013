@@ -12,9 +12,7 @@ import util.MyJoystick;
 import util.Output;
 
 /**
- *
- * @author trevor.jones
- * 
+ * @author Trevor
  * Controls the ejector with a timer
  */
 public class TimerEjector 
