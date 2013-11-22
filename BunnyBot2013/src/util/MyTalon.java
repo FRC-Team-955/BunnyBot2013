@@ -3,17 +3,17 @@
  * and open the template in the editor.
  */
 package util;
+
 import edu.wpi.first.wpilibj.Talon;
 import util.Output;
 
 /**
- * @aditya.sriram
+ * @aditya.sriram 
  * Extends talon with ramp function
  */
-public class MyTalon extends Talon  
-{
-    public MyTalon(int channel)
-    {
-        super(channel);
-    }
+public class MyTalon extends Talon {
+
+	public MyTalon(int channel) {
+		super(channel);
+	}
 }

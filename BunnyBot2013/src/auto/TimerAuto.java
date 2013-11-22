@@ -14,79 +14,74 @@ import edu.wpi.first.wpilibj.Timer;
  */
 public class TimerAuto {
 
-    boolean one = true;
-    boolean two = false;
-    boolean three = false;
+	boolean one = true;
+	boolean two = false;
+	boolean three = false;
+	Drive drive;
+	Timer timer = new Timer();
 
-    Drive drive;
-    Timer timer = new Timer();
+	public TimerAuto(Drive drive) {
+		this.drive = drive;
+	}
 
-    public TimerAuto(Drive drive) {
-        this.drive = drive;
-    }
+	public void run() {
 
-    public void run() {
+		if (one) {
 
-        if (one) {
+			double time = 10 / (1 * Config.driveMaxSpeed);
 
-            double time = 10 / (1 * Config.driveMaxSpeed);
+			timer.start();
 
-            timer.start();
+			if (timer.get() <= time) {
+				drive.set(1, 0);
+			} else {
 
-            if (timer.get() <= time) {
-                drive.set(1, 0);
-            }
- 
-            
-            
-            else {
-                
-                one = false;
-                two = true;
-                timer.stop();
-                timer.reset();
-               
-                System.out.println("Enter else");
-            }
-        }
+				one = false;
+				two = true;
+				timer.stop();
+				timer.reset();
 
-        if (two) {
+				System.out.println("Enter else");
+			}
+		}
 
-            double time = 10 / (1 * Config.driveMaxSpeed);
+		if (two) {
 
-            timer.start();
+			double time = 10 / (1 * Config.driveMaxSpeed);
 
-            if (timer.get() <= time) {
+			timer.start();
 
-                drive.set(1, 1);
+			if (timer.get() <= time) {
 
-            } else {
+				drive.set(1, 1);
 
-                two = false;
-                three = true;
-                timer.stop();
-                timer.reset();
+			} else {
 
-            }
-        }
-        
-        if (three) {
+				two = false;
+				three = true;
+				timer.stop();
+				timer.reset();
 
-            double time = 10 / (1 * Config.driveMaxSpeed);
+			}
+		}
 
-            timer.start();
+		if (three) {
 
-            if (timer.get() <= time) {
+			double time = 10 / (1 * Config.driveMaxSpeed);
 
-                drive.set(1, 0);
+			timer.start();
 
-            } else {
-                
-                three = false;
-                timer.stop();
-                timer.reset();
+			if (timer.get() <= time) {
 
-            }
-        }
-    }
+				drive.set(1, 0);
+
+			} else {
+
+				three = false;
+				timer.stop();
+				timer.reset();
+
+			}
+		}
+	}
 }
