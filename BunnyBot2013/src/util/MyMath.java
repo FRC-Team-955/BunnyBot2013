@@ -8,7 +8,7 @@ package util;
 
 /**
  *
- * @author Ryan
+ * 
  * Custom math functions: round and power.
  */
 public class MyMath 
@@ -32,6 +32,7 @@ public class MyMath
         num /= scalar;
         return num;       
     }  
+    
     /**
      * Returns a to the power of b.
      * @param a

@@ -8,17 +8,17 @@ package util;
 import edu.wpi.first.wpilibj.Gyro;
 
 /**
- * @author coders
+ * @author Pedro
+ * Extends gyro with a rounded angle
  */
 
 public class MyGyro extends Gyro 
 {
-    
+   
     /**
      * Creates a new gyro.
      * @param channel 
      */
-    
     public MyGyro(int channel)
     {
         super(channel);
@@ -29,7 +29,6 @@ public class MyGyro extends Gyro
      * @param digits
      * @return 
      */
-    
     public double getRoundedAngle(int digits) 
     {
         return MyMath.round(this.getAngle(),digits);

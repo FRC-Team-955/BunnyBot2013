@@ -7,8 +7,8 @@ import edu.wpi.first.wpilibj.Talon;
 import util.Output;
 
 /**
- *
- * @author aditya.sriram
+ * @aditya.sriram
+ * Extends talon with ramp function
  */
 public class MyTalon extends Talon  
 {

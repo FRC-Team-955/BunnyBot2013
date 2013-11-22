@@ -5,10 +5,13 @@
 package util;
 import edu.wpi.first.wpilibj.Joystick;
 
+
 /**
  *
  * @author seraj.bonakdar
+ * Extends the Joystick with a debounce function
  */
+
 public class MyJoystick extends Joystick 
 {
     boolean[] buttonState;
@@ -34,7 +37,7 @@ public class MyJoystick extends Joystick
     }
 
     /**
-     * returns the state of a button
+     * Returns the state of a button
      * @param button
      * @return
      */

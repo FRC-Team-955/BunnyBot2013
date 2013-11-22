@@ -9,12 +9,14 @@ import util.Output;
 
 /** 
  * @author trevor.jones
- * Enables the motors to be controlled by the joystick.
+ * 
  */ 
-public class Drive 
+
 /**
- * Creates objects for each talon.
+ * 
+ * Enables the motors to be controlled by the joystick.
  */
+public class Drive 
 {
     MyTalon leftTalonOne = new MyTalon(Config.chnDriveLeft1);
     //MyTalon leftTalonTwo = new MyTalon();
@@ -37,6 +39,7 @@ public class Drive
         setLeft(left);
         setRight(right);
     }
+    
     /**
      * This function sets double left (the left motor speed) to the left talons.
      * @param left  The set speed for the left motor.
@@ -47,6 +50,7 @@ public class Drive
         //leftTalonTwo.set(left);
         //leftTalonThree.set(left);
     }
+    
     /**
      * This function sets double right (the right motor speed) to the right talons.
      * @param right The set speed for the right motor.
