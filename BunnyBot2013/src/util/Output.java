@@ -41,7 +41,7 @@ public class Output {
 
 		return false;
 	}
-
+        
 	/**
 	 * Prints out the inputed value if the id is in the idArray (to print).
 	 *
@@ -76,7 +76,7 @@ public class Output {
 		}
 
 		setIdArray(newIdArray);
-	}
+        }
 
 	/**
 	 * Checks if the id to be removed is absent, if there removes it from the
@@ -110,4 +110,32 @@ public class Output {
 			System.out.println(idArray[i]);
 		}
 	}
+        
+    
+    public static void updateArray()
+    {
+        if(Station.getDitigalIn(Config.stDigInDrive))
+            addId(Config.driveId);
+        
+        else
+            removeId(Config.driveId);
+        
+        if(Station.getDitigalIn(Config.stDigInAutonomous))
+            addId(Config.autonomousId);
+        
+        else
+            removeId(Config.autonomousId);
+        
+        if(Station.getDitigalIn(Config.stDigInRecorder))
+            addId(Config.recorderId);
+        
+        else
+            removeId(Config.recorderId);
+        
+        if(Station.getDitigalIn(Config.stDigInReplayer))
+            addId(Config.replayerId);
+        
+        else
+            removeId(Config.replayerId);
+    }
 }
