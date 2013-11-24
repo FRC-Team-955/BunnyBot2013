@@ -10,45 +10,52 @@ package util;
  */
 public class MyMath {
 
-	/**
-	 * returns num rounded to x digits.
-	 *
-	 * @param num
-	 * @param digits
-	 * @return
-	 */
-	public static double round(double num, int digits) {
-		double scalar = power(10, digits);
-		num *= scalar;
-		double dec = num - Math.floor(num);
-		num = Math.floor(num);
+    /**
+     * returns num rounded to x digits.
+     *
+     * @param num
+     * @param digits
+     * @return
+     */
+    public static double round(double num, int digits) {
+        double scalar = power(10, digits);
+        num *= scalar;
+        double dec = num - Math.floor(num);
+        num = Math.floor(num);
 
-		if (dec >= .5) {
-			num++;
-		}
+        if (dec >= .5) {
+            num++;
+        }
 
-		num /= scalar;
-		return num;
-	}
+        num /= scalar;
+        return num;
+    }
 
-	/**
-	 * Returns a to the power of b.
-	 *
-	 * @param a
-	 * @param b
-	 * @return
-	 */
-	public static double power(double a, double b) {
-		double temp = a;
+    /**
+     * Returns a to the power of b.
+     *
+     * @param a
+     * @param b
+     * @return
+     */
+    public static double power(double a, double b) {
+        double temp = a;
 
-		for (int i = 1; i < b; i++) {
-			a *= temp;
-		}
-		
-		if (b == 0) {
-			return 1;
-		}
-		
-		return a;
-	}
+        for (int i = 1; i < b; i++) {
+            a *= temp;
+        }
+
+        if (b == 0) {
+            return 1;
+        }
+
+        return a;
+    }
+
+    /**
+     * Sets the double to be only at the hundreth's place, ex. 12.34.
+     */
+    public static double SetDoublePrecision(double dDouble) {
+        return (Double.valueOf(Math.floor(dDouble * 100 + 0.5) / 100)).doubleValue();
+    }
 }
