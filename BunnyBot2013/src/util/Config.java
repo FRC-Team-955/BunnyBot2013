@@ -23,6 +23,7 @@ public class Config {
     public static final int chnDriveRight1 = 8;
     public static final int chnDriveRight2 = 7;
     public static final int chnDriveLeft2 = 6;
+    public static final double rampScale = .125;
     // Ejector Related
     public static final double ejectorSpeed = 0.76536;
     public static final int ejectorTime = 2;
