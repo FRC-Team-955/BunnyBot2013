@@ -39,7 +39,7 @@ public class Drive {
 		setLeft(left);
 		setRight(right);
 		/*
-		 Output.println(Config.driveId, "Left: " + leftTalonOne.get() + " Right: " + rightTalonOne.get() + "Left2: " + leftTalonTwo.get() + " Right2: " + rightTalonTwo.get());
+		 Output.println(Config.IdDrive, "Left: " + leftTalonOne.get() + " Right: " + rightTalonOne.get() + "Left2: " + leftTalonTwo.get() + " Right2: " + rightTalonTwo.get());
 		 double goFaster = 0.50;
 		 setLeft(goFaster);
 		 setRight(-goFaster);

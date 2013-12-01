@@ -32,6 +32,6 @@ public class Bot {
 	 */
 	public void botRun() {
 		eject.run();
-		drive.set(joy.getX(), joy.getY());
+		drive.set(joy.getMyX(), joy.getMyY());
 	}
 }

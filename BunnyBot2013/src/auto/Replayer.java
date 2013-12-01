@@ -40,7 +40,7 @@ class Replayer
     {                
         if(!m_bRepStarted)
         {
-            Output.println(Config.replayerId, "Replay Initiated");
+            Output.println(Config.IdAutonomous, "Replay Initiated");
             m_joy.setAutoMode(true);
             m_sFileName = sFileName;
             m_joyDataList = readAllData();
@@ -60,7 +60,7 @@ class Replayer
             if(m_iCounter < 0 || m_iCounter >= m_iMax)   // If true it means we've read all data from file
                 m_bDoneReplay = true;
             
-            Output.println(Config.replayerId, "Left: " + m_joyCurrentData.getX() + ", Right: " + m_joyCurrentData.getY() + " Ejector: " + m_joy.gotPressed(Config.btEjector)); 
+            Output.println(Config.IdAutonomous, "Left: " + m_joyCurrentData.getX() + ", Right: " + m_joyCurrentData.getY() + " Ejector: " + m_joy.getButton(Config.btEjector)); 
         }
 
         else
@@ -68,7 +68,7 @@ class Replayer
             m_joy.setXY(0, 0);
             m_tmReplay.stop();
             m_tmReplay.reset();
-            Output.println(Config.replayerId, "Replay Ended");
+            Output.println(Config.IdAutonomous, "Replay Ended");
         }
         
         return m_bDoneReplay;

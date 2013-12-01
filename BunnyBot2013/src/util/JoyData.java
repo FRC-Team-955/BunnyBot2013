@@ -12,23 +12,23 @@ package util;
  */
 public class JoyData {
 
-    private double m_dTime = 0;
-    private double m_dX = 0;
-    private double m_dY = 0;
-    private boolean m_bPush = false;
+    private double m_time = 0;
+    private double m_x = 0;
+    private double m_y = 0;
+    private boolean m_push = false;
 
-    private void setValues(double dTimer, double dX, double dY, boolean bPush) {
-        m_dTime = dTimer;
-        m_dX = dX;
-        m_dY = dY;
-        m_bPush = bPush;
+    private void setValues(double timer, double x, double y, boolean ejector) {
+        m_time = timer;
+        m_x = x;
+        m_y = y;
+        m_push = ejector;
     }
 
     /**
      * Sets the values.
      */
-    public void setValues(double dTime, MyJoystick joy) {
-        setValues(dTime, joy.getMyX(), joy.getMyY(), joy.gotPressed(Config.btEjector));
+    public void setValues(double time, MyJoystick joy) {
+        setValues(time, joy.getMyX(), joy.getMyY(), joy.getButton(Config.btEjector));
     }
 
     public void setValues(JoyData emu) {
@@ -36,19 +36,19 @@ public class JoyData {
     }
 
     public void setTime(double timeVal) {
-        m_dTime = timeVal;
+        m_time = timeVal;
     }
 
     public void setX(double x) {
-        m_dX = x;
+        m_x = x;
     }
 
     public void setY(double y) {
-        m_dY = y;
+        m_y = y;
     }
 
     public void setPush(boolean val) {
-        m_bPush = val;
+        m_push = val;
     }
 
     /**
@@ -57,7 +57,7 @@ public class JoyData {
      * @return
      */
     public double getTimer() {
-        return m_dTime;
+        return m_time;
     }
 
     /**
@@ -66,7 +66,7 @@ public class JoyData {
      * @return
      */
     public double getX() {
-        return m_dX;
+        return m_x;
     }
 
     /**
@@ -75,10 +75,10 @@ public class JoyData {
      * @return
      */
     public double getY() {
-        return m_dY;
+        return m_y;
     }
 
     public boolean getEjector() {
-        return m_bPush;
+        return m_push;
     }
 }

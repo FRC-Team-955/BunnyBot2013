@@ -38,7 +38,7 @@ public class LimitEjector {
 	 * Extends and retracts the ejector when a button is pressed.
 	 */
 	public void run() {
-		if (joy.getDebounce(Config.btEjector)) //TODO get button
+		if (joy.getButton(Config.btEjector)) //TODO get button
 		{
 			ejectorMotor.set(speed);
 		}

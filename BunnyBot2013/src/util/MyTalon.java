@@ -10,13 +10,14 @@ import core.Drive;
 
 /**
  * @author seraj.bonakdar
- * Extends talon with ramp function
+ Extends talon with ramp function
  */
 public class MyTalon extends Talon {
 
     public MyTalon(int channel) {
         super(channel);                  
         }
+    
     /**
      * Checks if the talon is attempting to be set to a positive or a negative
      * number the makes sure it within the allowed distance. 

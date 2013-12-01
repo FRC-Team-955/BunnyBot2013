@@ -10,21 +10,7 @@ package util;
 public class Output {
 
 	private static int[] idArray;
-
-	public Output(int[] newIdArray) {
-		idArray = newIdArray;
-	}
-
-	/**
-	 * Sets the values of the idArray (includes the id numbers of the classes to
-	 * have included outputs print).
-	 *
-	 * @param newIdArray
-	 */
-	public static void setIdArray(int[] newIdArray) {
-		idArray = newIdArray;
-	}
-
+        
 	/**
 	 * Takes the idNum and checks if it is in the controlling array; returns
 	 * true if contained.
@@ -32,14 +18,13 @@ public class Output {
 	 * @param id
 	 * @return
 	 */
-	public static boolean checkToPrint(int id) {
-		for (int index = 0; index < idArray.length; index++) {
-			if (id == idArray[index]) {
-				return true;
-			}
-		}
-
-		return false;
+	public static boolean checkToPrint(int id) 
+        {
+            for (int index = 0; index < idArray.length; index++) 
+                if (id == idArray[index]) 
+                    return true;
+            
+            return false;
 	}
         
 	/**
@@ -48,10 +33,10 @@ public class Output {
 	 * @param id
 	 * @param value
 	 */
-	public static void println(int id, String value) {
-		if (checkToPrint(id)) {
-			System.out.println(value);
-		}
+	public static void println(int id, String value) 
+        {
+            if (checkToPrint(id)) 
+                System.out.println(value);
 	}
 
 	/**
@@ -75,7 +60,7 @@ public class Output {
 			}
 		}
 
-		setIdArray(newIdArray);
+		idArray = newIdArray;
         }
 
 	/**
@@ -99,7 +84,7 @@ public class Output {
 			newIdArray[newIndex++] = idArray[currentIndex];
 		}
 
-		setIdArray(newIdArray);
+		idArray = newIdArray;
 	}
 
 	/**
@@ -115,27 +100,15 @@ public class Output {
     public static void updateArray()
     {
         if(Station.getDitigalIn(Config.stDigInDrive))
-            addId(Config.driveId);
+            addId(Config.IdDrive);
         
         else
-            removeId(Config.driveId);
+            removeId(Config.IdDrive);
         
         if(Station.getDitigalIn(Config.stDigInAutonomous))
-            addId(Config.autonomousId);
+            addId(Config.IdAutonomous);
         
         else
-            removeId(Config.autonomousId);
-        
-        if(Station.getDitigalIn(Config.stDigInRecorder))
-            addId(Config.recorderId);
-        
-        else
-            removeId(Config.recorderId);
-        
-        if(Station.getDitigalIn(Config.stDigInReplayer))
-            addId(Config.replayerId);
-        
-        else
-            removeId(Config.replayerId);
+            removeId(Config.IdAutonomous);
     }
 }

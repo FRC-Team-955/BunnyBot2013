@@ -42,18 +42,18 @@ public class Autonomous {
      */
     public void run()
     {
-        if(m_joy.gotPressed(Config.btReplay))
+        if(m_joy.getButton(Config.btReplay))
             if(!m_joy.getSwitch(Config.btRecord))
                 m_joy.flipSwitch(Config.btReplay);
                 
-        if(m_joy.gotPressed(Config.btRecord))
+        if(m_joy.getButton(Config.btRecord))
             if(!m_joy.getSwitch(Config.btReplay))
                 m_joy.flipSwitch(Config.btRecord);
                         
         if(!m_joy.getSwitch(Config.btReplay) && !m_joy.getSwitch(Config.btRecord))
         {
             // Changes the ability for the user to edit the autonomous
-            if(m_joy.gotPressed(Config.btAllowEdit))
+            if(m_joy.getButton(Config.btAllowEdit))
             {
                 m_joy.flipSwitch(Config.btAllowEdit);
 
@@ -103,14 +103,14 @@ public class Autonomous {
         
         else if(overTimeLimit(m_replayer.getReplayTime()))
         {
-            Output.println(Config.autonomousId, "Replay Timeout");
+            Output.println(Config.IdAutonomous, "Replay Timeout");
             m_replayer.stop();
             m_sAutonmousStatus = "Replay Timeout";
         }
         
         else
         {
-            Output.println(Config.autonomousId, "Finished Replaying");
+            Output.println(Config.IdAutonomous, "Finished Replaying");
             m_joy.setSwitch(Config.btReplay, false);
             m_sAutonmousStatus = "Done";
         }

@@ -37,14 +37,14 @@ public class TimerEjector {
 	public void run() {
 		//Managing state transitions between 3 states. The three states are Retracted, Extending, and Retracting
 		//If the ejector isRetracted and the button is pushed start it and se isExtending
-		if (isRetracted && joy.getDebounce(Config.btEjector)) {
+		if (isRetracted && joy.getButton(Config.btEjector)) {
 			timer.start();
 			ejectorTalon.set(speed);
 			isRetracting = false;
 			isRetracted = false;
 			isExtending = true;
 
-			Output.println(Config.ejectorId, "Ejector Active!" + true);
+			Output.println(Config.IdEjector, "Ejector Active!" + true);
 		} //If the ejector goes for the set amount of time, have it go back and set isRetracting true
 		else if (isExtending) {
 			if (timer.get() >= time) {
@@ -52,7 +52,7 @@ public class TimerEjector {
 				isRetracting = true;
 				isRetracted = false;
 				isExtending = false;
-				Output.println(Config.ejectorId, "Ejector Retracting!");
+				Output.println(Config.IdEjector, "Ejector Retracting!");
 			}
 		} //if the ejector isRetracting, and it has retracted for the set amount of time, then stop the ejector,
 		//reset the timer, and set isRetracted.
@@ -64,7 +64,7 @@ public class TimerEjector {
 				isRetracted = true;
 				isRetracting = false;
 				isExtending = false;
-				Output.println(Config.ejectorId, "Ejector Retracted!");
+				Output.println(Config.IdEjector, "Ejector Retracted!");
 			}
 		} else {
 			ejectorTalon.set(0);
@@ -73,7 +73,7 @@ public class TimerEjector {
 			isRetracted = true;
 			isRetracting = false;
 			isExtending = false;
-			Output.println(Config.ejectorId, "Invalid state in TimerEjector");
+			Output.println(Config.IdEjector, "Invalid state in TimerEjector");
 		}
 	}
 }

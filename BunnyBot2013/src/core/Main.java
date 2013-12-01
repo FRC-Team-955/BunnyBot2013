@@ -23,20 +23,19 @@ import auto.Autonomous;
  */
 public class Main extends IterativeRobot {
 
+    
+    Bot bot;
+    MyJoystick joy;
+    Autonomous auto;
+
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
      */
-    Bot bot;
-    MyJoystick joy;
-    Output print;
-    Autonomous auto;
-
     public void robotInit() {
-        print = new Output(Config.getOutputArray());
-        joy = new MyJoystick(Config.chnJoystick);
-        bot = new Bot(joy);
         Output.updateArray();
+        joy = new MyJoystick(Config.chnJoystick, Config.buttonsOnJoystick);
+        bot = new Bot(joy);
         joy.setAxisChannel(MyJoystick.AxisType.kX, 3);
         joy.setAxisChannel(MyJoystick.AxisType.kY, 2);
         auto = new Autonomous(joy);
@@ -54,8 +53,8 @@ public class Main extends IterativeRobot {
      * This function is called periodically during operator control
      */
     public void teleopPeriodic() {
-        bot.botRun();
         Output.updateArray();
+        bot.botRun();
         joy.updateButtons();
         auto.run();
     }
@@ -74,11 +73,5 @@ public class Main extends IterativeRobot {
 
         // Resets the replay to false if it was true before
         auto.resetAutonomous();
-    }
-
-    /**
-     * This function is called periodically during test mode
-     */
-    public void testPeriodic() {
     }
 }

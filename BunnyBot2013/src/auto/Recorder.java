@@ -39,7 +39,7 @@ class Recorder {
     {        
         if(!m_bRecStarted)
         {
-            Output.println(Config.recorderId, "Recording!!!");	
+            Output.println(Config.IdAutonomous, "Recording!!!");	
             m_sFile = sFileName;
             m_tmRecorder.start();
             m_bRecStarted = true;
@@ -112,7 +112,7 @@ class Recorder {
         for(int iPos = 0; iPos < m_Index; iPos++)
         {
             m_joyData.setValues((JoyData) m_List.elementAt(iPos));
-            Output.println(Config.recorderId, "X: " + m_joyData.getX()+ ", Y: " + m_joyData.getY());	
+            Output.println(Config.IdAutonomous, "X: " + m_joyData.getX()+ ", Y: " + m_joyData.getY());	
             m_fileWriter.writeDouble(m_joyData.getTimer());
             m_fileWriter.writeDouble(m_joyData.getX());
             m_fileWriter.writeDouble(m_joyData.getY());
