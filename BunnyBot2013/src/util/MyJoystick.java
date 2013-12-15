@@ -17,6 +17,7 @@ public class MyJoystick extends Joystick
     private final int chanVert = 6;
     private final int chanHorz = 5;
     private final int amountOfButtons;
+    boolean [] buttonState;
     
     public MyJoystick(int portOne, int buttonsOnJoy)
     {
@@ -28,8 +29,29 @@ public class MyJoystick extends Joystick
         
         for(int index = 0; index < amountOfButtons; index++)
             buttonLast[index] = buttonSwitch[index] = buttonPressed[index] = false;
+         buttonState = new boolean[Config.buttonsOnJoystick];
+        
+        for (int i = 0; i < Config.buttonsOnJoystick; i++) {
+            buttonState[i] = buttonLast[i] = buttonSwitch[i] = buttonPressed[i] = false;
+        }
     }
-
+    public boolean getDebounce(int button) {
+        if (buttonState[button] == false && buttonState[button] == !getRawButton(button)) {
+            Output.println(Config.joystickId, "Button is Pressed! " + true);
+            buttonState[button] = getRawButton(button);
+            return true;
+        } // If the the button was unpressed and now is pressed it is pressed
+        else {
+            buttonState[button] = getRawButton(button);
+            return false;
+            //If not the button is not pressed    
+        }
+    }
+    /** 
+     * Gets the value of X
+     * 
+     * @return 
+     */
     public double getMyX()
     {
         if(isAuto)
@@ -38,6 +60,11 @@ public class MyJoystick extends Joystick
         return xPos = getX();
     }
     
+    /** 
+     * Gets the value of Y
+     * 
+     * @return 
+     */
     public double getMyY()
     {
         if(isAuto)
@@ -46,47 +73,87 @@ public class MyJoystick extends Joystick
         return yPos = getY();
     }
     
+    /**
+     * Sets X and Y
+     * @param newX
+     * @param newY 
+     */
     public void setXY(double newX, double newY)
     {
         xPos = newX;
         yPos = newY;
     }
     
+    /**
+     * Sets the button
+     * @param chan
+     * @param newVal 
+     */
     public void setButton(int chan, boolean newVal)
     {
         buttonPressed[chan-1] = newVal;
     }
     
+    /**
+     * Gets the pushed button
+     * @param chan
+     * @return 
+     */
     public boolean getButton(int chan)
     {
         return buttonPressed[chan-1];
     }
     
+    /**
+     * Sets the switch
+     * @param chan
+     * @return 
+     */
     public boolean getSwitch(int chan)
     {
         return buttonSwitch[chan-1];
     }
     
+    /**
+     * Flips the switch
+     * @param chan 
+     */
     public void flipSwitch(int chan)
     {
         setSwitch(chan, !getSwitch(chan));
     }
     
+    /**
+     * Sets the switch
+     * @param chan
+     * @param newVal 
+     */
     public void setSwitch(int chan, boolean newVal)
     {
         buttonSwitch[chan-1] = newVal;
     }
     
+    /**
+     * Sets auto
+     * @param newVal 
+     */
     public void setAutoMode(boolean newVal)
     {
         isAuto = newVal;
     }
     
+    /**
+     * Checks if auto is active
+     * @return 
+     */
     public boolean getAutoMode()
     {
         return isAuto;
     }
     
+    /**
+     * Updates the buttons
+     */
     public void updateButtons()
     {
         if(!isAuto)
