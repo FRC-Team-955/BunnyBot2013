@@ -51,6 +51,7 @@ public class Config
     public static final int IdDrive = 1;
     public static final int IdEjector = 2;
     public static final int IdAutonomous = 5;
+    public static final int joystickId = 4;
     
     // DriverStation Digital Input Channels 1-8 available
     public static final int stDigInAutoCenter = 1;
