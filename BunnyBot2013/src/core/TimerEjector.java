@@ -8,7 +8,6 @@ import util.MyTalon;
 import edu.wpi.first.wpilibj.Timer;
 import util.Config;
 import util.MyJoystick;
-import util.MyJoystick;
 import util.Output;
 
 /**

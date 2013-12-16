@@ -19,7 +19,6 @@ public class LimitEjector {
 	MyTalon ejectorMotor;
 	DigitalInput limitSwitchFar;
 	DigitalInput limitSwitchClose;
-	boolean retractMode = false;
 	double speed;
 
 	/**
@@ -41,16 +40,17 @@ public class LimitEjector {
 		if (joy.getButton(Config.btEjector)) //TODO get button
 		{
 			ejectorMotor.set(speed);
+			Output.println(Config.IdEjector, "Tri pressed, speed set");
 		}
-
-		if (retractMode == false && limitSwitchFar.get()) {
+		if (limitSwitchFar.get()) {
+			Output.println(Config.IdEjector, "Retracting...");
 			ejectorMotor.set(-speed);
-			retractMode = true;
+			
 		}
 
-		if (limitSwitchClose.get()) {
+		if (!limitSwitchClose.get()) {
 			ejectorMotor.set(0);
-			retractMode = false;
+			Output.println(Config.IdEjector, "Closed. Finished.");
 		}
 	}
 }

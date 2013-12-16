@@ -9,7 +9,7 @@ package util;
  */
 public class Output {
 
-	private static int[] idArray;
+	private static int[] idArray = {-1};
         
 	/**
 	 * Takes the idNum and checks if it is in the controlling array; returns
@@ -110,5 +110,17 @@ public class Output {
         
         else
             removeId(Config.IdAutonomous);
+		
+		if(Station.getDitigalIn(Config.stDigInEjector))
+            addId(Config.IdEjector);
+        
+        else
+            removeId(Config.IdEjector);
+		
+		if(Station.getDitigalIn(Config.stDigInTalon))
+            addId(Config.IdTalon);
+        
+        else
+            removeId(Config.IdTalon);
     }
 }

@@ -13,7 +13,7 @@ import util.Output;
 public class Bot {
 
 	MyJoystick joy;
-	LimitEjector eject;
+	//LimitEjector eject;
 	Drive drive;
 
 	/**
@@ -23,7 +23,7 @@ public class Bot {
 	 */
 	public Bot(MyJoystick joystick) {
 		joy = joystick;
-		eject = new LimitEjector(joy);
+		//eject = new LimitEjector(joy);
 		drive = new Drive();
 	}
 
@@ -31,7 +31,7 @@ public class Bot {
 	 * Runs the ejector and the drive.
 	 */
 	public void botRun() {
-		eject.run();
+		//eject.run();
 		drive.set(joy.getMyX(), joy.getMyY());
 	}
 }

@@ -20,15 +20,15 @@ public class Config
     // PWM Channels (Talons)
     public static final int chnEjector = 1;
     public static final int chnDriveLeft1 = 5;
-    public static final int chnDriveRight1 = 8;
-    public static final int chnDriveRight2 = 7;
-    public static final int chnDriveLeft2 = 6;
+	public static final int chnDriveLeft2 = 6;
+    public static final int chnDriveRight1 = 7;
+    public static final int chnDriveRight2 = 8;
     
     // Analog Input Channels (Gyros)
     
     // Digital Input Channels (Limit Switches, Encoders)
-    public static final int chnLsClose = 7;     // Used for Ejector detection
-    public static final int chnLsFar = 6;       // Used for Ejector detection
+    public static final int chnLsClose = 1;     // Used for Ejector detection
+    public static final int chnLsFar = 3;       // Used for Ejector detection
     
     // Drive Constants
     public static final double rampRate = 0.1;
@@ -45,13 +45,7 @@ public class Config
     public static final int btAllowEdit = 10;
     public static final int btReplay = 12;
     public static final int buttonsOnJoystick = 13;
-    public static final int chnJoystick = 1;
-    
-    // Output Related
-    public static final int IdDrive = 1;
-    public static final int IdEjector = 2;
-    public static final int IdAutonomous = 5;
-    public static final int joystickId = 4;
+    public static final int chnJoystick = 1;    
     
     // DriverStation Digital Input Channels 1-8 available
     public static final int stDigInAutoCenter = 1;
@@ -61,7 +55,15 @@ public class Config
     public static final int stDigInDrive = 5;
     public static final int stDigInAutonomous = 6;
     public static final int stDigInEjector = 7;
+	public static final int stDigInTalon = 8;
     
+	// Output Related
+    public static final int IdDrive = stDigInDrive;
+    public static final int IdEjector = stDigInEjector;
+    public static final int IdAutonomous = stDigInAutonomous;
+	public static final int IdTalon = stDigInTalon;
+    public static final int joystickId = 4;
+	
     // Driverstation line
     public static final int stLineFile = 2;
     public static final int stLineAutonomous = 3;
