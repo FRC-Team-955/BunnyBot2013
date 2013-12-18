@@ -20,10 +20,8 @@ public class Drive {
 	
 	MyTalon leftTalonOne = new MyTalon(Config.chnDriveLeft1);
 	MyTalon leftTalonTwo = new MyTalon(Config.chnDriveLeft2);
-	//MyTalon leftTalonThree = new MyTalon();
 	MyTalon rightTalonOne = new MyTalon(Config.chnDriveRight1);
 	MyTalon rightTalonTwo = new MyTalon(Config.chnDriveRight2);
-	//MyTalon rightTalonThree = new MyTalon();
 
 	/**
 	 * The function makes two speeds for the motors and calls setLeft and
