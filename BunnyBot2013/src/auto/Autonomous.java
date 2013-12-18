@@ -2,7 +2,6 @@ package auto;
 
 import util.Config;
 import util.MyJoystick;
-import util.Output;
 import util.Station;
 
 /**
@@ -103,16 +102,14 @@ public class Autonomous {
         
         else if(overTimeLimit(m_replayer.getReplayTime()))
         {
-            Output.println(Config.IdAutonomous, "Replay Timeout");
             m_replayer.stop();
             m_sAutonmousStatus = "Replay Timeout";
         }
         
         else
         {
-            Output.println(Config.IdAutonomous, "Finished Replaying");
             m_joy.setSwitch(Config.btReplay, false);
-            m_sAutonmousStatus = "Done";
+            m_sAutonmousStatus = "Replay Finished";
         }
     }
     
@@ -123,17 +120,18 @@ public class Autonomous {
     {
         m_recorder.record(m_sFileName);
         
-        if(m_sFileName.equalsIgnoreCase(m_sRegOutput) || (m_joy.getSwitch(Config.btAllowEdit) && !overTimeLimit(m_recorder.getRecordTime())))
+        if(m_sFileName.equals(m_sRegOutput))
             m_sAutonmousStatus = "Rec: " + m_recorder.getRecordTime();
         
-        else if(overTimeLimit(m_recorder.getRecordTime()))
+        else if(m_joy.getSwitch(Config.btAllowEdit) && !overTimeLimit(m_recorder.getRecordTime()))
+            m_sAutonmousStatus = "Rec: " + m_recorder.getRecordTime();
+        
+        else
         {
             m_recorder.stop();
-            m_sAutonmousStatus = "Record Timeout";
+            m_joy.setSwitch(Config.btRecord, false);
+            m_sAutonmousStatus = "Recording Stopped";
         }
-        
-        else if(!m_joy.getSwitch(Config.btAllowEdit))
-            m_sAutonmousStatus = "Can't Edit";
     }
     
     /**

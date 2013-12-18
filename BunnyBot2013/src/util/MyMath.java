@@ -53,9 +53,11 @@ public class MyMath {
     }
 
     /**
-     * Sets the double to be only at the hundreth's place, ex. 12.34.
+     * Rounds the double to the hundreth's place, ex. 12.345 -> 12.35.
+     * @param value Value to be rounded
+     * @return 
      */
-    public static double SetDoublePrecision(double dDouble) {
-        return (Double.valueOf(Math.floor(dDouble * 100 + 0.5) / 100)).doubleValue();
+    public static double round(double value) {
+        return Math.floor(value * 100 + 0.5) / 100;
     }
 }

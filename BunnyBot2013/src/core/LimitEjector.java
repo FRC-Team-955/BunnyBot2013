@@ -9,17 +9,21 @@ import util.Config;
 import util.MyJoystick;
 import edu.wpi.first.wpilibj.DigitalInput;
 import util.Output;
+import util.Station;
 
 /**
  * @author Warren Controls the ejector using limit switches.
  */
 public class LimitEjector {
 
-	MyJoystick joy;
-	MyTalon ejectorMotor;
-	DigitalInput limitSwitchFar;
-	DigitalInput limitSwitchClose;
-	double speed;
+	private MyJoystick joy;
+	private MyTalon ejectorMotor;
+	private DigitalInput limitSwitchFar;
+	private DigitalInput limitSwitchClose;
+        private boolean isExtending = false;
+        private boolean isRetracting = false;
+        private String statusPrefix = "Ejector Status: ";
+        private String status = "Retracted";
 
 	/**
 	 * Constructor takes a joystick while creating the limit switches.
@@ -37,20 +41,29 @@ public class LimitEjector {
 	 * Extends and retracts the ejector when a button is pressed.
 	 */
 	public void run() {
-		if (joy.getButton(Config.btEjector)) //TODO get button
+		if (joy.getButton(Config.btEjector))
 		{
-			ejectorMotor.set(speed);
-			Output.println(Config.IdEjector, "Tri pressed, speed set");
+			ejectorMotor.set(Config.ejectorSpeed);
+                        isExtending = true;
+                        isRetracting = false;
+			status = "Extending";
 		}
-		if (limitSwitchFar.get()) {
-			Output.println(Config.IdEjector, "Retracting...");
-			ejectorMotor.set(-speed);
-			
+		if (!limitSwitchFar.get() && isExtending) 
+                {
+			ejectorMotor.set(-Config.ejectorSpeed);
+                        isExtending = false;
+                        isRetracting = true;
+			status = "Retracting";
 		}
 
-		if (!limitSwitchClose.get()) {
+		if (!limitSwitchClose.get() && isRetracting) 
+                {
 			ejectorMotor.set(0);
-			Output.println(Config.IdEjector, "Closed. Finished.");
+                        isExtending = false;
+                        isRetracting = false;
+			status = "Retracted";
 		}
+                
+                Station.print(Config.stLineEjector, statusPrefix + status);
 	}
 }

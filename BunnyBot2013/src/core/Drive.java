@@ -20,10 +20,11 @@ public class Drive {
 	
 	MyTalon leftTalonOne = new MyTalon(Config.chnDriveLeft1);
 	MyTalon leftTalonTwo = new MyTalon(Config.chnDriveLeft2);
-	//MyTalon leftTalonThree = new MyTalon();
+	MyTalon leftTalonThree = new MyTalon(Config.chnDriveLeft3);
+        
 	MyTalon rightTalonOne = new MyTalon(Config.chnDriveRight1);
 	MyTalon rightTalonTwo = new MyTalon(Config.chnDriveRight2);
-	//MyTalon rightTalonThree = new MyTalon();
+	MyTalon rightTalonThree = new MyTalon(Config.chnDriveRight3);
 
 	/**
 	 * The function makes two speeds for the motors and calls setLeft and
@@ -59,7 +60,7 @@ public class Drive {
 	private void setLeft(double left) {
 		leftTalonOne.set(left);
 		leftTalonTwo.set(left);
-		//leftTalonThree.Ramp(left);
+		leftTalonThree.set(left);
 	}
 
 	/**
@@ -71,6 +72,6 @@ public class Drive {
 	private void setRight(double right) {
 		rightTalonOne.set(right);
 		rightTalonTwo.set(right);
-		//rightTalonThree.Ramp(right);
+		rightTalonThree.set(right);
 	}
 }

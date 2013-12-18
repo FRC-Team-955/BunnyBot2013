@@ -98,7 +98,7 @@ class Recorder {
      */
     public double getRecordTime()
     {
-        return MyMath.SetDoublePrecision(m_tmRecorder.get());
+        return MyMath.round(m_tmRecorder.get());
     }
     
     /**

@@ -101,7 +101,7 @@ class Replayer
      */
     public double getReplayTime()
     {              
-        return MyMath.SetDoublePrecision(m_tmReplay.get());
+        return MyMath.round(m_tmReplay.get());
     }
     
     /**

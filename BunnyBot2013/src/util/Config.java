@@ -18,11 +18,14 @@ package util;
 public class Config 
 {
     // PWM Channels (Talons)
-    public static final int chnEjector = 1;
-    public static final int chnDriveLeft1 = 5;
-	public static final int chnDriveLeft2 = 6;
-    public static final int chnDriveRight1 = 7;
-    public static final int chnDriveRight2 = 8;
+    public static final int chnEjector = 4;
+    public static final int chnDriveLeft1 = 1;
+    public static final int chnDriveLeft2 = 2;
+    public static final int chnDriveLeft3 = 3;
+    
+    public static final int chnDriveRight1 = 5;
+    public static final int chnDriveRight2 = 6;
+    public static final int chnDriveRight3 = 7;
     
     // Analog Input Channels (Gyros)
     
@@ -64,7 +67,8 @@ public class Config
 	public static final int IdTalon = stDigInTalon;
     public static final int joystickId = 4;
 	
-    // Driverstation line
+    // Driverstation line 1-6 available
     public static final int stLineFile = 2;
     public static final int stLineAutonomous = 3;
+    public static final int stLineEjector = 6;
 }
