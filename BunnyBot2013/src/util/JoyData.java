@@ -15,24 +15,22 @@ public class JoyData {
     private double m_time = 0;
     private double m_x = 0;
     private double m_y = 0;
-    private boolean m_push = false;
 
-    private void setValues(double timer, double x, double y, boolean ejector) {
+    private void setValues(double timer, double x, double y) {
         m_time = timer;
         m_x = x;
         m_y = y;
-        m_push = ejector;
     }
 
     /**
      * Sets the values.
      */
     public void setValues(double time, MyJoystick joy) {
-        setValues(time, joy.getMyX(), joy.getMyY(), joy.getButton(Config.btEjector));
+        setValues(time, joy.getMyX(), joy.getMyY());
     }
 
     public void setValues(JoyData emu) {
-        setValues(emu.getTimer(), emu.getX(), emu.getY(), emu.getEjector());
+        setValues(emu.getTimer(), emu.getX(), emu.getY());
     }
 
     public void setTime(double timeVal) {
@@ -46,11 +44,7 @@ public class JoyData {
     public void setY(double y) {
         m_y = y;
     }
-
-    public void setPush(boolean val) {
-        m_push = val;
-    }
-
+    
     /**
      * Returns time stamp of the data.
      *
@@ -76,9 +70,5 @@ public class JoyData {
      */
     public double getY() {
         return m_y;
-    }
-
-    public boolean getEjector() {
-        return m_push;
     }
 }

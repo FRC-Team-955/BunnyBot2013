@@ -115,8 +115,7 @@ class Recorder {
             Output.println(Config.IdAutonomous, "X: " + m_joyData.getX()+ ", Y: " + m_joyData.getY());	
             m_fileWriter.writeDouble(m_joyData.getTimer());
             m_fileWriter.writeDouble(m_joyData.getX());
-            m_fileWriter.writeDouble(m_joyData.getY());
-            m_fileWriter.writeBoolean(m_joyData.getEjector());
+            m_fileWriter.writeDouble(m_joyData.getY());         
         }
 
         m_fileWriter.close();

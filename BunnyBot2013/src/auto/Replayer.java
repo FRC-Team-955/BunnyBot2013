@@ -55,12 +55,11 @@ class Replayer
                 m_joyCurrentData.setValues(m_joyDataList[m_iCounter++]);
             
             m_joy.setXY(m_joyCurrentData.getX(), m_joyCurrentData.getY());
-            m_joy.setButton(Config.btEjector, m_joyCurrentData.getEjector());
 
             if(m_iCounter < 0 || m_iCounter >= m_iMax)   // If true it means we've read all data from file
                 m_bDoneReplay = true;
             
-            Output.println(Config.IdAutonomous, "Left: " + m_joyCurrentData.getX() + ", Right: " + m_joyCurrentData.getY() + " Ejector: " + m_joy.getButton(Config.btEjector)); 
+            Output.println(Config.IdAutonomous, "Left: " + m_joyCurrentData.getX() + ", Right: " + m_joyCurrentData.getY()); 
         }
 
         else
@@ -129,7 +128,6 @@ class Replayer
             joyData[index].setTime(m_fileReader.readDouble());
             joyData[index].setX(m_fileReader.readDouble());
             joyData[index].setY(m_fileReader.readDouble());
-            joyData[index].setPush(m_fileReader.readBoolean());
         }
         
         m_fileReader.close();
