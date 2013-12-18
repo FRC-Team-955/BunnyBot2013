@@ -18,17 +18,10 @@ package util;
 public class Config 
 {
     // PWM Channels (Talons)
-    public static final int chnEjector = 1;
     public static final int chnDriveLeft1 = 5;
     public static final int chnDriveLeft2 = 6;
     public static final int chnDriveRight1 = 7;
     public static final int chnDriveRight2 = 8;
-    
-    // Analog Input Channels (Gyros)
-    
-    // Digital Input Channels (Limit Switches, Encoders)
-    public static final int chnLsClose = 1;     // Used for Ejector detection
-    public static final int chnLsFar = 3;       // Used for Ejector detection
     
     // Drive Constants
     public static final double rampRate = 0.1;
@@ -36,7 +29,6 @@ public class Config
     public static final int driveMaxSpeed = 10;     // Used for Timer Auto (TODO units)
     
     // Joystick Constants
-    public static final int btEjector = 1;
     public static final int btRecord = 9;
     public static final int btAllowEdit = 10;
     public static final int btReplay = 12;
