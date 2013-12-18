@@ -111,12 +111,6 @@ public class Output {
         else
             removeId(Config.IdAutonomous);
 		
-		if(Station.getDitigalIn(Config.stDigInEjector))
-            addId(Config.IdEjector);
-        
-        else
-            removeId(Config.IdEjector);
-		
 		if(Station.getDitigalIn(Config.stDigInTalon))
             addId(Config.IdTalon);
         
