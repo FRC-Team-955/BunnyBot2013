@@ -59,6 +59,7 @@ public class Drive {
 	private void setLeft(double left) {
 		leftTalonOne.set(left);
 		leftTalonTwo.set(left);
+		//leftTalonThree.Ramp(left);
 	}
 
 	/**
@@ -70,5 +71,6 @@ public class Drive {
 	private void setRight(double right) {
 		rightTalonOne.set(right);
 		rightTalonTwo.set(right);
+		//rightTalonThree.Ramp(right);
 	}
 }

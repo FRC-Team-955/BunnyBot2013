@@ -6,14 +6,12 @@
 /*----------------------------------------------------------------------------*/
 package core;
 
-import util.MyGyro;
 import util.Output;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import util.Config;
 import util.MyJoystick;
 import auto.Autonomous;
 import auto.TimerAuto;
-import edu.wpi.first.wpilibj.Encoder;
 
 /**
  *
@@ -28,8 +26,6 @@ public class Main extends IterativeRobot {
     
     Bot bot;
     MyJoystick joy;
-	Encoder enca;
-	Encoder encb;
     Autonomous auto;
 //	TimerAuto tauto;
     /**
@@ -44,10 +40,6 @@ public class Main extends IterativeRobot {
         bot = new Bot(joy);
         joy.setAxisChannel(MyJoystick.AxisType.kX, 3);
         joy.setAxisChannel(MyJoystick.AxisType.kY, 2);
-		enca = new Encoder(1,2);
-		encb = new Encoder(3,4);
-		enca.start();
-		encb.start();
         auto = new Autonomous(joy);
 //		tauto = new TimerAuto(bot.drive);
 	
@@ -61,7 +53,7 @@ public class Main extends IterativeRobot {
 	{
         Output.updateArray();
         auto.replay();
-		//System.out.println("Running Auto");
+		bot.botRun();
 //		tmrAuto.run();
 
 	
@@ -74,7 +66,6 @@ public class Main extends IterativeRobot {
         Output.updateArray();
 		joy.updateButtons();
         bot.botRun();
-		System.out.println(encb.get()+"   "+ enca.get());
         auto.run();
 	}
 

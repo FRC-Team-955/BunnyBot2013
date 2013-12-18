@@ -30,7 +30,7 @@ public class MyTalon extends Talon {
 //				set(get() + Config.rampScale);
 //			Output.println(Config.IdTalon,"ramping down");
 //			}
-//			else{
+//			else {
 //				set(get() - Config.rampScale);
 //				Output.println(Config.IdTalon,"ramping up");
 //			}
