@@ -95,19 +95,14 @@ public class Autonomous {
      */
     public void replay()
     {
-        boolean m_bDoneReplay = m_replayer.replay(m_sFileName);
+        m_replayer.replay(m_sFileName);
         
-        if(!m_bDoneReplay && !overTimeLimit(m_replayer.getReplayTime()))
+        if(!m_replayer.isDone() && !overTimeLimit(m_replayer.getReplayTime()))
             m_sAutonmousStatus = "Rep: " + m_replayer.getReplayTime();
         
-        else if(overTimeLimit(m_replayer.getReplayTime()))
+        else 
         {
             m_replayer.stop();
-            m_sAutonmousStatus = "Replay Timeout";
-        }
-        
-        else
-        {
             m_joy.setSwitch(Config.btReplay, false);
             m_sAutonmousStatus = "Replay Finished";
         }
@@ -117,14 +112,12 @@ public class Autonomous {
      * Records bots movements to specified file, if allowed.
      */
     private void record()
-    {
-        m_recorder.record(m_sFileName);
-        
-        if(m_sFileName.equals(m_sRegOutput))
+    {        
+        if(m_sFileName.equals(m_sRegOutput) || (m_joy.getSwitch(Config.btAllowEdit) && !overTimeLimit(m_recorder.getRecordTime())))
+        {
+            m_recorder.record(m_sFileName);
             m_sAutonmousStatus = "Rec: " + m_recorder.getRecordTime();
-        
-        else if(m_joy.getSwitch(Config.btAllowEdit) && !overTimeLimit(m_recorder.getRecordTime()))
-            m_sAutonmousStatus = "Rec: " + m_recorder.getRecordTime();
+        }
         
         else
         {

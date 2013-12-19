@@ -36,7 +36,7 @@ class Replayer
      * Replays data from desired file.
      * @param sFileName
      */
-    public boolean replay(String sFileName)
+    public void replay(String sFileName)
     {                
         if(!m_bRepStarted)
         {
@@ -70,8 +70,6 @@ class Replayer
             m_tmReplay.reset();
             Output.println(Config.IdAutonomous, "Replay Ended");
         }
-        
-        return m_bDoneReplay;
     }
     
     /**
@@ -92,6 +90,15 @@ class Replayer
             m_bDoneReplay = false;
             m_bRepStarted = false;
         }
+    }
+    
+    /**
+     * Returns true if done replaying, false otherwise
+     * @return 
+     */
+    public boolean isDone()
+    {
+        return m_bDoneReplay;
     }
     
     /**
