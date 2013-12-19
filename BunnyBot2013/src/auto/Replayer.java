@@ -136,7 +136,7 @@ class Replayer
             joyData[index].setTime(m_fileReader.readDouble());
             joyData[index].setX(m_fileReader.readDouble());
             joyData[index].setY(m_fileReader.readDouble());
-            joyData[index].setPush(m_fileReader.readBoolean());
+            joyData[index].setEjector(m_fileReader.readBoolean());
         }
         
         m_fileReader.close();

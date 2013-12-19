@@ -16,12 +16,12 @@ import util.Output;
  */
 class Recorder {
 
-    private int m_Index = 0;
+    private int m_index = 0;
     private boolean m_bRecStarted = false;
     private boolean m_bRecDone = false;
     private String m_sFile = "";
     private Timer m_tmRecorder = new Timer();
-    private Vector m_List = new Vector();
+    private Vector m_list = new Vector();
     private JoyData m_joyData = null;
     private FileWriter m_fileWriter = null;
     private MyJoystick m_joy;
@@ -47,10 +47,10 @@ class Recorder {
         
         if(!m_bRecDone)
         {
-            m_Index++;
+            m_index++;
             m_joyData = new JoyData();  // Have to reinit it to prevent changing previous ones		
             m_joyData.setValues(m_tmRecorder.get(), m_joy);
-            m_List.addElement(m_joyData);
+            m_list.addElement(m_joyData);
         }
         
         else
@@ -58,7 +58,6 @@ class Recorder {
             m_joy.setAutoMode(true);
             m_joy.setXY(0, 0);
             m_tmRecorder.stop();
-            m_tmRecorder.reset();
         }
     }
     
@@ -69,10 +68,10 @@ class Recorder {
     {
         if(m_bRecStarted)
         {
-            m_joy.setAutoMode(false);
             writeDataToFile();
-            m_List.removeAllElements();
-            m_Index = 0;
+            m_joy.setAutoMode(false);
+            m_list.removeAllElements();
+            m_index = 0;
             m_tmRecorder.stop();
             m_tmRecorder.reset();
             m_sFile = "";
@@ -106,19 +105,22 @@ class Recorder {
      */
     private void writeDataToFile()
     {
-        m_fileWriter = new FileWriter(m_sFile);
-        m_fileWriter.writeInt(m_Index);
-
-        for(int iPos = 0; iPos < m_Index; iPos++)
+        if(m_index > 0)
         {
-            m_joyData.setValues((JoyData) m_List.elementAt(iPos));
-            Output.println(Config.IdAutonomous, "X: " + m_joyData.getX()+ ", Y: " + m_joyData.getY());	
-            m_fileWriter.writeDouble(m_joyData.getTimer());
-            m_fileWriter.writeDouble(m_joyData.getX());
-            m_fileWriter.writeDouble(m_joyData.getY());
-            m_fileWriter.writeBoolean(m_joyData.getEjector());
-        }
+            m_fileWriter = new FileWriter(m_sFile);
+            m_fileWriter.writeInt(m_index);
 
-        m_fileWriter.close();
+            for(int iPos = 0; iPos < m_index; iPos++)
+            {
+                m_joyData.setValues((JoyData) m_list.elementAt(iPos));
+                Output.println(Config.IdAutonomous, "X: " + m_joyData.getX()+ ", Y: " + m_joyData.getY());	
+                m_fileWriter.writeDouble(m_joyData.getTimer());
+                m_fileWriter.writeDouble(m_joyData.getX());
+                m_fileWriter.writeDouble(m_joyData.getY());
+                m_fileWriter.writeBoolean(m_joyData.getEjector());
+            }
+
+            m_fileWriter.close();
+        }
     }
 }

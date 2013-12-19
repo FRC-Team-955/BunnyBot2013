@@ -29,7 +29,6 @@ public class TimerEjector {
 	}
 
 	/**
-	 *
 	 * Starts the ejector and the timer. It has 3 states, isRetracted,
 	 * isExtending, and isRetracting
 	 */

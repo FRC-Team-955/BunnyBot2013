@@ -5,13 +5,10 @@
 package util;
 
 import edu.wpi.first.wpilibj.Talon;
-import util.Output;
-import core.Drive;
-import java.lang.Math;
 
 /**
  * @author seraj.bonakdar
- Extends talon with ramp function
+ * Extends talon with ramp function
  */
 public class MyTalon extends Talon {
 
@@ -22,9 +19,18 @@ public class MyTalon extends Talon {
     /**
      * Checks if the talon is attempting to be set to a positive or a negative
      * number the makes sure it within the allowed distance. 
-     * @param speedWanted the speed that the joystick is trying to set the talon to.
+     * @param want the speed that the joystick is trying to set the talon to.
      */
-//    public void Ramp(double speedWanted){         
+    public void ramp(double want)
+    {
+        double cur = get(); // cur = current speed
+        
+        if(Math.abs(want - cur) > Config.rampRate)
+            want = cur + (Config.rampRate * want > cur ? 1: -1);
+        
+        set(want);
+    }
+//    public void ramp(double speedWanted){         
 //        if(Math.abs(speedWanted) - Math.abs(get()) > Config.rampScale){
 //			if(speedWanted > 0){
 //				set(get() + Config.rampScale);

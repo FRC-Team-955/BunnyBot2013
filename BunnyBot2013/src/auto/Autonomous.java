@@ -140,7 +140,7 @@ public class Autonomous {
     }
     
     /**
-     * Chooses the ;autonomous from the driverstation, for use right before 
+     * Chooses the autonomous from the driverstation, for use right before 
      * the actual autonomous begins.
      */
     public void setFile()

@@ -96,7 +96,9 @@ public class Output {
 		}
 	}
         
-    
+    /**
+     * Updates the id array by checking the driverstation
+     */
     public static void updateArray()
     {
         if(Station.getDitigalIn(Config.stDigInDrive))

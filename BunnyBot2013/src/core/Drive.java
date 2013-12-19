@@ -10,10 +10,6 @@ import util.Output;
 
 /**
  * @author trevor.jones
- *
- */
-/**
- *
  * Enables the motors to be controlled by the joystick.
  */
 public class Drive {

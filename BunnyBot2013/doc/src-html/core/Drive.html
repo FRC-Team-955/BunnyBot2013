@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+<head>
+<title>Source code</title>
+<link rel="stylesheet" type="text/css" href="../../stylesheet.css" title="Style">
+</head>
+<body>
+<div class="sourceContainer">
+<pre><span class="sourceLineNo">001</span>/*<a name="line.1"></a>
+<span class="sourceLineNo">002</span> * To change this template, choose Tools | Templates<a name="line.2"></a>
+<span class="sourceLineNo">003</span> * and open the template in the editor.<a name="line.3"></a>
+<span class="sourceLineNo">004</span> */<a name="line.4"></a>
+<span class="sourceLineNo">005</span>package core;<a name="line.5"></a>
+<span class="sourceLineNo">006</span><a name="line.6"></a>
+<span class="sourceLineNo">007</span>import util.MyTalon;<a name="line.7"></a>
+<span class="sourceLineNo">008</span>import util.Config;<a name="line.8"></a>
+<span class="sourceLineNo">009</span>import util.Output;<a name="line.9"></a>
+<span class="sourceLineNo">010</span><a name="line.10"></a>
+<span class="sourceLineNo">011</span>/**<a name="line.11"></a>
+<span class="sourceLineNo">012</span> * @author trevor.jones<a name="line.12"></a>
+<span class="sourceLineNo">013</span> * Enables the motors to be controlled by the joystick.<a name="line.13"></a>
+<span class="sourceLineNo">014</span> */<a name="line.14"></a>
+<span class="sourceLineNo">015</span>public class Drive {<a name="line.15"></a>
+<span class="sourceLineNo">016</span>        <a name="line.16"></a>
+<span class="sourceLineNo">017</span>        MyTalon leftTalonOne = new MyTalon(Config.chnDriveLeft1);<a name="line.17"></a>
+<span class="sourceLineNo">018</span>        MyTalon leftTalonTwo = new MyTalon(Config.chnDriveLeft2);<a name="line.18"></a>
+<span class="sourceLineNo">019</span>        MyTalon leftTalonThree = new MyTalon(Config.chnDriveLeft3);<a name="line.19"></a>
+<span class="sourceLineNo">020</span>        <a name="line.20"></a>
+<span class="sourceLineNo">021</span>        MyTalon rightTalonOne = new MyTalon(Config.chnDriveRight1);<a name="line.21"></a>
+<span class="sourceLineNo">022</span>        MyTalon rightTalonTwo = new MyTalon(Config.chnDriveRight2);<a name="line.22"></a>
+<span class="sourceLineNo">023</span>        MyTalon rightTalonThree = new MyTalon(Config.chnDriveRight3);<a name="line.23"></a>
+<span class="sourceLineNo">024</span><a name="line.24"></a>
+<span class="sourceLineNo">025</span>        /**<a name="line.25"></a>
+<span class="sourceLineNo">026</span>         * The function makes two speeds for the motors and calls setLeft and<a name="line.26"></a>
+<span class="sourceLineNo">027</span>         * setRight<a name="line.27"></a>
+<span class="sourceLineNo">028</span>         *<a name="line.28"></a>
+<span class="sourceLineNo">029</span>         * @param x The place on the x axis of the joystick the stick is on.<a name="line.29"></a>
+<span class="sourceLineNo">030</span>         * @param y The place on the y axis of the joystick the stick is on.<a name="line.30"></a>
+<span class="sourceLineNo">031</span>         */<a name="line.31"></a>
+<span class="sourceLineNo">032</span>        public void set(double x, double y) {<a name="line.32"></a>
+<span class="sourceLineNo">033</span>                double left = y + x;<a name="line.33"></a>
+<span class="sourceLineNo">034</span>                double right = (y - x);<a name="line.34"></a>
+<span class="sourceLineNo">035</span><a name="line.35"></a>
+<span class="sourceLineNo">036</span>                setLeft(left);<a name="line.36"></a>
+<span class="sourceLineNo">037</span>                setRight(right);<a name="line.37"></a>
+<span class="sourceLineNo">038</span>                <a name="line.38"></a>
+<span class="sourceLineNo">039</span>                 Output.println(Config.IdDrive, "Left: " + leftTalonOne.get() + " Right: " + rightTalonOne.get() + "Left2: " + leftTalonTwo.get() + " Right2: " + rightTalonTwo.get());<a name="line.39"></a>
+<span class="sourceLineNo">040</span>                 /*<a name="line.40"></a>
+<span class="sourceLineNo">041</span>                 double goFaster = 0.50;<a name="line.41"></a>
+<span class="sourceLineNo">042</span>                 setLeft(goFaster);<a name="line.42"></a>
+<span class="sourceLineNo">043</span>                 setRight(-goFaster);<a name="line.43"></a>
+<span class="sourceLineNo">044</span>                 * <a name="line.44"></a>
+<span class="sourceLineNo">045</span>                 * This code exists for testing of talon and Talon sr speeds, especially at low values.<a name="line.45"></a>
+<span class="sourceLineNo">046</span>                 * <a name="line.46"></a>
+<span class="sourceLineNo">047</span>                 */<a name="line.47"></a>
+<span class="sourceLineNo">048</span><a name="line.48"></a>
+<span class="sourceLineNo">049</span>        }<a name="line.49"></a>
+<span class="sourceLineNo">050</span><a name="line.50"></a>
+<span class="sourceLineNo">051</span>        /**<a name="line.51"></a>
+<span class="sourceLineNo">052</span>         * This function sets double left (the left motor speed) to the left talons.<a name="line.52"></a>
+<span class="sourceLineNo">053</span>         *<a name="line.53"></a>
+<span class="sourceLineNo">054</span>         * @param left The set speed for the left motor.<a name="line.54"></a>
+<span class="sourceLineNo">055</span>         */<a name="line.55"></a>
+<span class="sourceLineNo">056</span>        private void setLeft(double left) {<a name="line.56"></a>
+<span class="sourceLineNo">057</span>                leftTalonOne.set(left);<a name="line.57"></a>
+<span class="sourceLineNo">058</span>                leftTalonTwo.set(left);<a name="line.58"></a>
+<span class="sourceLineNo">059</span>                leftTalonThree.set(left);<a name="line.59"></a>
+<span class="sourceLineNo">060</span>        }<a name="line.60"></a>
+<span class="sourceLineNo">061</span><a name="line.61"></a>
+<span class="sourceLineNo">062</span>        /**<a name="line.62"></a>
+<span class="sourceLineNo">063</span>         * This function sets double right (the right motor speed) to the right<a name="line.63"></a>
+<span class="sourceLineNo">064</span>         * talons.<a name="line.64"></a>
+<span class="sourceLineNo">065</span>         *<a name="line.65"></a>
+<span class="sourceLineNo">066</span>         * @param right The set speed for the right motor.<a name="line.66"></a>
+<span class="sourceLineNo">067</span>         */<a name="line.67"></a>
+<span class="sourceLineNo">068</span>        private void setRight(double right) {<a name="line.68"></a>
+<span class="sourceLineNo">069</span>                rightTalonOne.set(right);<a name="line.69"></a>
+<span class="sourceLineNo">070</span>                rightTalonTwo.set(right);<a name="line.70"></a>
+<span class="sourceLineNo">071</span>                rightTalonThree.set(right);<a name="line.71"></a>
+<span class="sourceLineNo">072</span>        }<a name="line.72"></a>
+<span class="sourceLineNo">073</span>}<a name="line.73"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</pre>
+</div>
+</body>
+</html>

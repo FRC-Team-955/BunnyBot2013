@@ -14,7 +14,6 @@ import auto.Autonomous;
 import auto.TimerAuto;
 
 /**
- *
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
  * documentation. If you change the name of this class or the package after
@@ -70,8 +69,7 @@ public class Main extends IterativeRobot {
 	}
 
     /**
-     * Called once in m_autonomous, tells m_autonomous which file to play based
-     * on the value of "iFileType"
+     * Called once in m_autonomous
      */
     public void autonomousInit() {
         Output.updateArray();
@@ -81,6 +79,9 @@ public class Main extends IterativeRobot {
 	
 	}
 
+    /**
+     * This function is called once when the robot is disabled
+     */
     public void disabledInit() {
         Output.updateArray();
 
