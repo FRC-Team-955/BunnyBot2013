@@ -37,8 +37,8 @@ public class MyJoystick extends Joystick
      */
     public double getMyX()
     {
-        if(isAuto)
-            return xPos;
+//        if(isAuto)
+//            return xPos;
         
         return xPos = getX();
     }
@@ -50,8 +50,8 @@ public class MyJoystick extends Joystick
      */
     public double getMyY()
     {
-        if(isAuto)
-            return yPos;
+//        if(isAuto)
+//            return yPos;
         
         return yPos = getY();
     }

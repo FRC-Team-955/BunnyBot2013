@@ -100,11 +100,11 @@ public class Autonomous {
         if(!m_replayer.isDone() && !overTimeLimit(m_replayer.getReplayTime()))
             m_sAutonmousStatus = "Rep: " + m_replayer.getReplayTime();
         
-        else 
+        else
         {
             m_replayer.stop();
             m_joy.setSwitch(Config.btReplay, false);
-            m_sAutonmousStatus = "Replay Finished";
+            m_sAutonmousStatus = "Rep: Finished";
         }
     }
     
@@ -112,18 +112,24 @@ public class Autonomous {
      * Records bots movements to specified file, if allowed.
      */
     private void record()
-    {        
+    {       
         if(m_sFileName.equals(m_sRegOutput) || (m_joy.getSwitch(Config.btAllowEdit) && !overTimeLimit(m_recorder.getRecordTime())))
         {
             m_recorder.record(m_sFileName);
             m_sAutonmousStatus = "Rec: " + m_recorder.getRecordTime();
         }
         
+		else if(overTimeLimit(m_recorder.getRecordTime()))
+		{
+			m_recorder.stop();
+			m_sAutonmousStatus = "Rec: Stopped over time";
+		}
+		
         else
         {
             m_recorder.stop();
-            m_joy.setSwitch(Config.btRecord, false);
-            m_sAutonmousStatus = "Recording Stopped";
+			m_joy.setSwitch(Config.btRecord, false);
+            m_sAutonmousStatus = "Rec: Can't edit file";
         }
     }
     

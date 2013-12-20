@@ -30,9 +30,16 @@ public class Drive {
 	 * @param y The place on the y axis of the joystick the stick is on.
 	 */
 	public void set(double x, double y) {
+		y = y;
+		x = x;
 		double left = y + x;
 		double right = (y - x);
-
+		
+		left = -left;	// Have to flip the left side so both sides go forward
+		
+		left *= Config.speedConst;
+		right *= Config.speedConst;
+		
 		setLeft(left);
 		setRight(right);
 		
@@ -54,9 +61,9 @@ public class Drive {
 	 * @param left The set speed for the left motor.
 	 */
 	private void setLeft(double left) {
-		leftTalonOne.set(left);
-		leftTalonTwo.set(left);
-		leftTalonThree.set(left);
+		leftTalonOne.ramp(left);
+		leftTalonTwo.ramp(left);
+		leftTalonThree.ramp(left);
 	}
 
 	/**
@@ -66,8 +73,8 @@ public class Drive {
 	 * @param right The set speed for the right motor.
 	 */
 	private void setRight(double right) {
-		rightTalonOne.set(right);
-		rightTalonTwo.set(right);
-		rightTalonThree.set(right);
+		rightTalonOne.ramp(right);
+		rightTalonTwo.ramp(right);
+		rightTalonThree.ramp(right);
 	}
 }

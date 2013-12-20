@@ -82,12 +82,15 @@ class Recorder {
     }
     
     /**
-     * Stops recording.
+     * Stops recording, also enters auto mode and disables user input and 
+	 * puts the robot to a halt.
      */
     public void stop()
     {
         m_bRecStarted = true;
         m_bRecDone = true;
+		m_joy.setAutoMode(true);
+		m_joy.setXY(0, 0);
     }
     
     /** 

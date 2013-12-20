@@ -27,20 +27,20 @@ public class Config
     public static final int chnDriveRight2 = 6;
     public static final int chnDriveRight3 = 7;
     
-    // Analog Input Channels (Gyros)
-    
     // Digital Input Channels (Limit Switches, Encoders)
     public static final int chnLsClose = 1;     // Used for Ejector detection
-    public static final int chnLsFar = 3;       // Used for Ejector detection
+    public static final int chnLsFar = 6;       // Used for Ejector detection
     
     // Drive Constants
     public static final double rampRate = 0.1;
-    public static final double rampScale = .125;
+	public static final double speedConst = 1;//2/3;
     public static final int driveMaxSpeed = 10;     // Used for Timer Auto (TODO units)
     
     // Ejector Constants
-    public static final double ejectorSpeed = 0.76536;
-    public static final int ejectorTime = 2;
+    public static double ejectorForwardTime = 1;
+	public static double ejectorBackTime = 2;
+	public static double ejectorSpeedForward = 1;
+	public static double ejectorSpeedBack = 0.5;
     
     // Joystick Constants
     public static final int btEjector = 1;

@@ -26,18 +26,18 @@ public class MyTalon extends Talon {
         double cur = get(); // cur = current speed
         
         if(Math.abs(want - cur) > Config.rampRate)
-            want = cur + (Config.rampRate * want > cur ? 1: -1);
+            want = cur + (Config.rampRate * (want > cur ? 1: -1));
         
         set(want);
     }
 //    public void ramp(double speedWanted){         
-//        if(Math.abs(speedWanted - get()) > Config.rampScale){
-//			if(get() > speedWanted){
-//				set(get() - Config.rampScale);
+//        if(Math.abs(speedWanted) - Math.abs(get()) > Config.rampScale){
+//			if(speedWanted > 0){
+//				set(get() + Config.rampScale);
 //			Output.println(Config.IdTalon,"ramping down");
 //			}
 //			else {
-//				set(get() + Config.rampScale);
+//				set(get() - Config.rampScale);
 //				Output.println(Config.IdTalon,"ramping up");
 //			}
 //		}

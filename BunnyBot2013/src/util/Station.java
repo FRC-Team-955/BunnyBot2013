@@ -25,6 +25,16 @@ public class Station
         return DriverStation.getInstance().getDigitalIn(iChan);
     }
     
+	/**
+     * Gets the analog value from the driverstation, 1 - 8 available.
+     * @param iChan
+     * @return 
+     */
+    public static double getAnalogIn(int iChan)
+    {
+        return DriverStation.getInstance().getAnalogIn(iChan);
+    }
+	
     /**
      * Prints specified message to the driver station on the corresponding line
      * 1-6 are available.
