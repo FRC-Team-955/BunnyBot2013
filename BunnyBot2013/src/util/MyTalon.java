@@ -31,13 +31,13 @@ public class MyTalon extends Talon {
         set(want);
     }
 //    public void ramp(double speedWanted){         
-//        if(Math.abs(speedWanted) - Math.abs(get()) > Config.rampScale){
-//			if(speedWanted > 0){
-//				set(get() + Config.rampScale);
+//        if(Math.abs(speedWanted - get()) > Config.rampScale){
+//			if(get() > speedWanted){
+//				set(get() - Config.rampScale);
 //			Output.println(Config.IdTalon,"ramping down");
 //			}
 //			else {
-//				set(get() - Config.rampScale);
+//				set(get() + Config.rampScale);
 //				Output.println(Config.IdTalon,"ramping up");
 //			}
 //		}
