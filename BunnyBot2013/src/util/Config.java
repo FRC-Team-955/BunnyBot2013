@@ -40,7 +40,7 @@ public class Config
     public static double ejectorTimeBack = 2;
     
     // Joystick Constants
-    public static final int btEjector = 1;
+    public static final int btEjector = 6;
     public static final int btRecord = 9;
     public static final int btAllowEdit = 10;
     public static final int btReplay = 12;

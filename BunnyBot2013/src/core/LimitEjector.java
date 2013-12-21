@@ -45,9 +45,9 @@ public class LimitEjector {
 	 */
 	public void run() {
 		
-		Config.ejectorSpeedForward = Station.getAnalogIn(1);
-		Config.ejectorSpeedBack = Station.getAnalogIn(2);
-                Config.ejectorTimeBack = Station.getAnalogIn(3);
+//		Config.ejectorSpeedForward = Station.getAnalogIn(1);
+//		Config.ejectorSpeedBack = Station.getAnalogIn(2);
+//        Config.ejectorTimeBack = Station.getAnalogIn(3);
 		
 		if (joy.getButton(Config.btEjector))
 		{
@@ -60,8 +60,8 @@ public class LimitEjector {
 		if (limitSwitchFar.get() && isExtending) 
 		{
 			ejectorMotor.set(-Config.ejectorSpeedBack);
-                        timer.reset();
-                        timer.start();
+			timer.reset();
+			timer.start();
 			isExtending = false;
 			isRetracting = true;
 			status = "Retracting";
@@ -70,8 +70,8 @@ public class LimitEjector {
 		if (!limitSwitchClose.get() && isRetracting || timer.get() >= Config.ejectorTimeBack) 
 		{
 			ejectorMotor.set(0);
-                        timer.stop();
-                        timer.reset();
+			timer.stop();
+			timer.reset();
 			isExtending = false;
 			isRetracting = false;
 			status = "Retracted";

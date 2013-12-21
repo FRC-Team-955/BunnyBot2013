@@ -21,7 +21,7 @@ public class Drive {
 	MyTalon rightTalonOne = new MyTalon(Config.chnDriveRight1);
 	MyTalon rightTalonTwo = new MyTalon(Config.chnDriveRight2);
 	MyTalon rightTalonThree = new MyTalon(Config.chnDriveRight3);
-        MyJoystick joy;
+    MyJoystick joy;
                 
         public Drive(MyJoystick stick)
         {
@@ -34,8 +34,8 @@ public class Drive {
 	public void run() {
 		double y = joy.getMyY();
 		double x = joy.getMyX();
-                y *= Math.abs(y);
-                x *= Math.abs(x);
+        y *= Math.abs(y);
+        x *= Math.abs(x);
 		double left = y + x;
 		double right = (y - x);
 		
@@ -45,8 +45,8 @@ public class Drive {
 		set(left, right);
                 
 		Output.println(Config.IdDrive, "Left 1: " + leftTalonOne.get() + " Right 1: " + rightTalonOne.get());
-                Output.println(Config.IdDrive, "Left 2: " + leftTalonTwo.get() + " Right 2: " + rightTalonTwo.get());
-                Output.println(Config.IdDrive, "Left 3: " + leftTalonThree.get() + " Right 3: " + rightTalonThree.get());
+        Output.println(Config.IdDrive, "Left 2: " + leftTalonTwo.get() + " Right 2: " + rightTalonTwo.get());
+        Output.println(Config.IdDrive, "Left 3: " + leftTalonThree.get() + " Right 3: " + rightTalonThree.get());
 	}
         
         /**
