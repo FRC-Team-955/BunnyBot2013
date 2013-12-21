@@ -51,13 +51,13 @@ class Recorder {
             m_joyData = new JoyData();  // Have to reinit it to prevent changing previous ones		
             m_joyData.setValues(m_tmRecorder.get(), m_joy);
             m_list.addElement(m_joyData);
+            Output.println(Config.IdAutonomous, "Rec: " + m_tmRecorder.get() + ", Left: " + m_joy.getMyX() + ", Right: " + m_joy.getMyY() + " Ejector: " + m_joy.getButton(Config.btEjector));
         }
         
         else
         {
-            m_joy.setAutoMode(true);
-            m_joy.setXY(0, 0);
             m_tmRecorder.stop();
+            Output.println(Config.IdAutonomous, "Record Ended");
         }
     }
     
@@ -69,7 +69,6 @@ class Recorder {
         if(m_bRecStarted)
         {
             writeDataToFile();
-            m_joy.setAutoMode(false);
             m_list.removeAllElements();
             m_index = 0;
             m_tmRecorder.stop();
@@ -89,16 +88,14 @@ class Recorder {
     {
         m_bRecStarted = true;
         m_bRecDone = true;
-		m_joy.setAutoMode(true);
-		m_joy.setXY(0, 0);
     }
     
     /** 
      * Gets the time value of the recording, as in how long it has been 
-     * replaying
+     * recording
      * @return 
      */
-    public double getRecordTime()
+    public double getTime()
     {
         return MyMath.round(m_tmRecorder.get());
     }

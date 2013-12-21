@@ -30,23 +30,4 @@ public class MyTalon extends Talon {
         
         set(want);
     }
-//    public void ramp(double speedWanted){         
-//        if(Math.abs(speedWanted) - Math.abs(get()) > Config.rampScale){
-//			if(speedWanted > 0){
-//				set(get() + Config.rampScale);
-//			Output.println(Config.IdTalon,"ramping down");
-//			}
-//			else {
-//				set(get() - Config.rampScale);
-//				Output.println(Config.IdTalon,"ramping up");
-//			}
-//		}
-//        else{
-//            set(speedWanted);
-//			Output.println(Config.IdTalon,"ramp not in use");
-//        }    
-//    }
 }
-
-
-

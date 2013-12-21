@@ -22,7 +22,6 @@ public class Config
     public static final int chnDriveLeft1 = 1;
     public static final int chnDriveLeft2 = 2;
     public static final int chnDriveLeft3 = 3;
-    
     public static final int chnDriveRight1 = 5;
     public static final int chnDriveRight2 = 6;
     public static final int chnDriveRight3 = 7;
@@ -33,14 +32,12 @@ public class Config
     
     // Drive Constants
     public static final double rampRate = 0.1;
-	public static final double speedConst = 1;//2/3;
-    public static final int driveMaxSpeed = 10;     // Used for Timer Auto (TODO units)
+    public static final double speedConst = 1;//2/3;
     
     // Ejector Constants
-    public static double ejectorForwardTime = 1;
-	public static double ejectorBackTime = 2;
-	public static double ejectorSpeedForward = 1;
-	public static double ejectorSpeedBack = 0.5;
+    public static double ejectorSpeedForward = 1;
+    public static double ejectorSpeedBack = 0.6;
+    public static double ejectorTimeBack = 2;
     
     // Joystick Constants
     public static final int btEjector = 1;
@@ -58,14 +55,11 @@ public class Config
     public static final int stDigInDrive = 5;
     public static final int stDigInAutonomous = 6;
     public static final int stDigInEjector = 7;
-	public static final int stDigInTalon = 8;
     
 	// Output Related
     public static final int IdDrive = stDigInDrive;
     public static final int IdEjector = stDigInEjector;
-    public static final int IdAutonomous = stDigInAutonomous;
-	public static final int IdTalon = stDigInTalon;
-    public static final int joystickId = 4;
+    public static final int IdAutonomous = stDigInAutonomous; 
 	
     // Driverstation line 1-6 available
     public static final int stLineFile = 2;

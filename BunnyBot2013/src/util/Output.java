@@ -18,7 +18,7 @@ public class Output {
 	 * @param id
 	 * @return
 	 */
-	public static boolean checkToPrint(int id) 
+	private static boolean checkToPrint(int id) 
         {
             for (int index = 0; index < idArray.length; index++) 
                 if (id == idArray[index]) 
@@ -45,7 +45,7 @@ public class Output {
 	 *
 	 * @param id
 	 */
-	public static void addId(int id) {
+	private static void addId(int id) {
 		if (checkToPrint(id)) {
 			return;
 		}
@@ -69,7 +69,7 @@ public class Output {
 	 *
 	 * @param id
 	 */
-	public static void removeId(int id) {
+	private static void removeId(int id) {
 		if (!checkToPrint(id)) {
 			return;
 		}
@@ -85,15 +85,6 @@ public class Output {
 		}
 
 		idArray = newIdArray;
-	}
-
-	/**
-	 * Prints out the ids of the classes to be printed.
-	 */
-	public static void printArray() {
-		for (int i = 0; i < idArray.length; i++) {
-			System.out.println(idArray[i]);
-		}
 	}
         
     /**
@@ -118,11 +109,5 @@ public class Output {
         
         else
             removeId(Config.IdEjector);
-		
-		if(Station.getDitigalIn(Config.stDigInTalon))
-            addId(Config.IdTalon);
-        
-        else
-            removeId(Config.IdTalon);
     }
 }

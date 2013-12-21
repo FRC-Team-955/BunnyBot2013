@@ -11,8 +11,6 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import util.Config;
 import util.MyJoystick;
 import auto.Autonomous;
-import auto.TimerAuto;
-
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -22,11 +20,11 @@ import auto.TimerAuto;
  */
 public class Main extends IterativeRobot {
 
-    
-    Bot bot;
     MyJoystick joy;
+    LimitEjector eject;
+    Drive drive;
     Autonomous auto;
-//	TimerAuto tauto;
+    
     /**
      * This function is run when the robot is first started up and should be
      * used for any initialization code.
@@ -36,12 +34,11 @@ public class Main extends IterativeRobot {
 		System.out.println("Bunny Bot 2013");
         Output.updateArray();
         joy = new MyJoystick(Config.chnJoystick, Config.buttonsOnJoystick);
-        bot = new Bot(joy);
         joy.setAxisChannel(MyJoystick.AxisType.kX, 3);
         joy.setAxisChannel(MyJoystick.AxisType.kY, 2);
+        eject = new LimitEjector(joy);
+	drive = new Drive(joy);
         auto = new Autonomous(joy);
-//		tauto = new TimerAuto(bot.drive);
-	
 	
 	}
 
@@ -52,9 +49,8 @@ public class Main extends IterativeRobot {
 	{
         Output.updateArray();
         auto.replay();
-		bot.botRun();
-//		tmrAuto.run();
-
+	eject.run();
+	drive.run();
 	
 	}
 
@@ -64,7 +60,8 @@ public class Main extends IterativeRobot {
     public void teleopPeriodic() {
         Output.updateArray();
 		joy.updateButtons();
-        bot.botRun();
+        eject.run();
+	drive.run();
         auto.run();
 	}
 
@@ -74,8 +71,6 @@ public class Main extends IterativeRobot {
     public void autonomousInit() {
         Output.updateArray();
         auto.setFile();
-		//System.out.println("Auto Initiated");
-	
 	
 	}
 

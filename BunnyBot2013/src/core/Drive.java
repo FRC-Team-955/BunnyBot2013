@@ -6,6 +6,7 @@ package core;
 
 import util.MyTalon;
 import util.Config;
+import util.MyJoystick;
 import util.Output;
 
 /**
@@ -17,64 +18,50 @@ public class Drive {
 	MyTalon leftTalonOne = new MyTalon(Config.chnDriveLeft1);
 	MyTalon leftTalonTwo = new MyTalon(Config.chnDriveLeft2);
 	MyTalon leftTalonThree = new MyTalon(Config.chnDriveLeft3);
-        
 	MyTalon rightTalonOne = new MyTalon(Config.chnDriveRight1);
 	MyTalon rightTalonTwo = new MyTalon(Config.chnDriveRight2);
 	MyTalon rightTalonThree = new MyTalon(Config.chnDriveRight3);
-
-	/**
-	 * The function makes two speeds for the motors and calls setLeft and
-	 * setRight
-	 *
-	 * @param x The place on the x axis of the joystick the stick is on.
-	 * @param y The place on the y axis of the joystick the stick is on.
-	 */
-	public void set(double x, double y) {
-		y = y;
-		x = x;
+        MyJoystick joy;
+                
+        public Drive(MyJoystick stick)
+        {
+            joy = stick;
+        }
+        
+	/** 
+         * This function runs the drive base based on the joysticks x and y
+         */
+	public void run() {
+		double y = joy.getMyY();
+		double x = joy.getMyX();
+                y *= Math.abs(y);
+                x *= Math.abs(x);
 		double left = y + x;
 		double right = (y - x);
 		
 		left = -left;	// Have to flip the left side so both sides go forward
-		
 		left *= Config.speedConst;
 		right *= Config.speedConst;
-		
-		setLeft(left);
-		setRight(right);
-		
-		 Output.println(Config.IdDrive, "Left: " + leftTalonOne.get() + " Right: " + rightTalonOne.get() + "Left2: " + leftTalonTwo.get() + " Right2: " + rightTalonTwo.get());
-		 /*
-		 double goFaster = 0.50;
-		 setLeft(goFaster);
-		 setRight(-goFaster);
-		 * 
-		 * This code exists for testing of talon and Talon sr speeds, especially at low values.
-		 * 
-		 */
-
+		set(left, right);
+                
+		Output.println(Config.IdDrive, "Left 1: " + leftTalonOne.get() + " Right 1: " + rightTalonOne.get());
+                Output.println(Config.IdDrive, "Left 2: " + leftTalonTwo.get() + " Right 2: " + rightTalonTwo.get());
+                Output.println(Config.IdDrive, "Left 3: " + leftTalonThree.get() + " Right 3: " + rightTalonThree.get());
 	}
-
-	/**
-	 * This function sets double left (the left motor speed) to the left talons.
-	 *
-	 * @param left The set speed for the left motor.
-	 */
-	private void setLeft(double left) {
-		leftTalonOne.ramp(left);
-		leftTalonTwo.ramp(left);
-		leftTalonThree.ramp(left);
-	}
-
-	/**
-	 * This function sets double right (the right motor speed) to the right
-	 * talons.
-	 *
-	 * @param right The set speed for the right motor.
-	 */
-	private void setRight(double right) {
-		rightTalonOne.ramp(right);
-		rightTalonTwo.ramp(right);
-		rightTalonThree.ramp(right);
-	}
+        
+        /**
+         * Sets the talons of the drive base to left and right
+         * @param left
+         * @param right 
+         */
+        private void set(double left, double right)
+        {
+            leftTalonOne.ramp(left);
+            leftTalonTwo.ramp(left);
+            leftTalonThree.ramp(left);
+            
+            rightTalonOne.ramp(right);
+            rightTalonTwo.ramp(right);
+            rightTalonThree.ramp(right);
+        }
 }

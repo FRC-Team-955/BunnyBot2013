@@ -23,7 +23,7 @@ public class LimitEjector {
 	private DigitalInput limitSwitchClose;
 	private boolean isExtending = false;
 	private boolean isRetracting = false;
-	private String statusPrefix = "Ejector Status: ";
+	private String statusPrefix = "Ejec: ";
 	private String status = "Retracted";
 	private Timer timer;
 
@@ -36,6 +36,7 @@ public class LimitEjector {
 		limitSwitchFar = new DigitalInput(Config.chnLsFar);
 		limitSwitchClose = new DigitalInput(Config.chnLsClose);
 		ejectorMotor = new MyTalon(Config.chnEjector);
+                timer = new Timer();
 		joy = joystick;
 	}
 
@@ -44,8 +45,9 @@ public class LimitEjector {
 	 */
 	public void run() {
 		
-		Config.ejectorSpeedForward = Station.getAnalogIn(2);
-		Config.ejectorSpeedBack = Station.getAnalogIn(3);
+		Config.ejectorSpeedForward = Station.getAnalogIn(1);
+		Config.ejectorSpeedBack = Station.getAnalogIn(2);
+                Config.ejectorTimeBack = Station.getAnalogIn(3);
 		
 		if (joy.getButton(Config.btEjector))
 		{
@@ -58,21 +60,24 @@ public class LimitEjector {
 		if (limitSwitchFar.get() && isExtending) 
 		{
 			ejectorMotor.set(-Config.ejectorSpeedBack);
+                        timer.reset();
+                        timer.start();
 			isExtending = false;
 			isRetracting = true;
 			status = "Retracting";
 		}
 
-		if (!limitSwitchClose.get() && isRetracting) 
+		if (!limitSwitchClose.get() && isRetracting || timer.get() >= Config.ejectorTimeBack) 
 		{
 			ejectorMotor.set(0);
+                        timer.stop();
+                        timer.reset();
 			isExtending = false;
 			isRetracting = false;
 			status = "Retracted";
 		}
                 
-		Station.print(4, limitSwitchClose.get() + " - " + limitSwitchFar.get());
+		Output.println(Config.IdEjector, "Close: " + limitSwitchClose.get() + ", Far: " + limitSwitchFar.get() + "Ejec Speed: " + ejectorMotor.getDescription());
 		Station.print(Config.stLineEjector, statusPrefix + status);
-		System.out.println(statusPrefix + status);
 	}
 }

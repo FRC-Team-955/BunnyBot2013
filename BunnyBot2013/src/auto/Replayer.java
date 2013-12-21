@@ -60,14 +60,13 @@ class Replayer
             if(m_iCounter < 0 || m_iCounter >= m_iMax)   // If true it means we've read all data from file
                 m_bDoneReplay = true;
             
-            Output.println(Config.IdAutonomous, "Left: " + m_joyCurrentData.getX() + ", Right: " + m_joyCurrentData.getY() + " Ejector: " + m_joy.getButton(Config.btEjector)); 
+            Output.println(Config.IdAutonomous, "Rep: " + m_tmReplay.get() + ", Time Data: " + m_joyCurrentData.getTimer() + ", Left: " + m_joyCurrentData.getX() + ", Right: " + m_joyCurrentData.getY() + " Ejector: " + m_joyCurrentData.getEjector()); 
         }
 
         else
         {
             m_joy.setXY(0, 0);
             m_tmReplay.stop();
-            m_tmReplay.reset();
             Output.println(Config.IdAutonomous, "Replay Ended");
         }
     }
@@ -103,10 +102,9 @@ class Replayer
     
     /**
      * Gets the value of the recording, as in how long it has been replaying.
-     * Returns -1 when done, or if it's not replaying
      * @return 
      */
-    public double getReplayTime()
+    public double getTime()
     {              
         return MyMath.round(m_tmReplay.get());
     }
