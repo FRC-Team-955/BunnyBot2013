@@ -18,7 +18,6 @@ import auto.Autonomous;
  * creating this project, you must also update the manifest file in the resource
  * directory.
  */
-hi
 public class Main extends IterativeRobot {
 
     MyJoystick joy;
